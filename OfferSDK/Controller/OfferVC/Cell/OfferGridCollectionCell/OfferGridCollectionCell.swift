@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+private import SDWebImage
 
 class OfferGridCollectionCell: UICollectionViewCell {
     
@@ -24,15 +24,25 @@ class OfferGridCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        imgView.roundCorners([.topLeft,.topRight], radius: 8)
-        vwBg.dropShadow()
+//        imgView.roundCorners([.topLeft,.topRight], radius: 8)
+        
 //        vwBg.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.8).cgColor
 //        vwBg.layer.borderColor = UIColor.red.withAlphaComponent(0.8).cgColor
-        vwBg.layer.borderWidth = 0.4
+        vwBg.layer.borderWidth = 1
         vwBg.setCornerRadius(radius: 8)
+        vwBg.dropShadow()
         
         vwExpireSoon.roundCorners([.bottomLeft,.topRight], radius: 8)
         
+//        vwBg.applyCardShadow()
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        imgView.roundCorners([.topLeft, .topRight], radius: 8)
+        imgView.clipsToBounds = true
     }
     
     
@@ -54,20 +64,32 @@ class OfferGridCollectionCell: UICollectionViewCell {
     func setData(model: OfferModel, config: OfferConfig) {
         let bundle = getCurrentBundle(self)
         
-        lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
-        lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
+//        lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
+//        lblHeadline.setHTMLStringToLabel(text: "<p>Light up your cart with festive discounts.</p>", align: .center)
+        //lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
         
+        DispatchQueue.main.async {
+            self.lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
+            self.lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
+        }
         
         imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         imgView.sd_setImage(with: URL(string: model.getImageURL(env: config.environment)), placeholderImage: UIImage(named: "placeholder.png", in: bundle, with: .none))
         lblExpiry.text = model.getOfferEndCaption()
-        if model.isRegisteredOffer {
-            btnAdd.setImage(UIImage(named: "greenTick.png", in: bundle, with: .none), for: .normal)
-            btnAdd.isUserInteractionEnabled = false
+        
+        if model.isShowAddButton() {
+            btnAdd.isHidden = false
+            if model.isRegisteredOffer {
+                btnAdd.setImage(UIImage(named: "greenTick.png", in: bundle, with: .none), for: .normal)
+                btnAdd.isUserInteractionEnabled = false
+            }
+            else {
+                btnAdd.setImage(UIImage(named: "plus_round.png", in: bundle, with: .none), for: .normal)
+                btnAdd.isUserInteractionEnabled = true
+            }
         }
         else {
-            btnAdd.setImage(UIImage(named: "plus_round.png", in: bundle, with: .none), for: .normal)
-            btnAdd.isUserInteractionEnabled = true
+            btnAdd.isHidden = true
         }
         
         
@@ -77,7 +99,12 @@ class OfferGridCollectionCell: UICollectionViewCell {
         }
         else {
             vwExpireSoon.isHidden = true
-            vwBg.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.8).cgColor
+            if model.isRegisteredOffer {
+                vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
+            }
+            else {
+                vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
+            }
         }
     }
     

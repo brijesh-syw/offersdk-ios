@@ -23,9 +23,7 @@
 					<string>Main</string>
 				</dict>
 			</array>
-		</dict>        
+		</dict>
 	</dict>
-    <key>UIUserInterfaceStyle</key>
-    <string>Light</string>
 </dict>
 </plist>

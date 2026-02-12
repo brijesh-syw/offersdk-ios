@@ -33,6 +33,6 @@ enum CellType {
     
     //Filter
     case FilterAvailable
-    case FilterRedeemed
-    case FilterExpired
+    case FilterAdded
+    case FilterExpiringSoon
 }

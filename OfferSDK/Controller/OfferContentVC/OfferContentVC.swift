@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+private import SDWebImage
 
 class OfferContentVC: UIViewController {
     

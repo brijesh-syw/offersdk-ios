@@ -135,11 +135,11 @@ extension ViewController {
 //        let frameworkBundleID  = "com.syw.OfferSDK";
 //        let bundle = Bundle(identifier: frameworkBundleID)
         
-        let colorsSetting = ColorSettings(primaryColor: UIColor.systemCyan, secondaryColor: UIColor.yellow, primaryTextColor: UIColor.black, secondaryTextColor: UIColor.white, primaryButtonBGColor: UIColor.blue, secondaryButtonBGColor: UIColor.red)
-
-        ThemeSettings.shared.colorSetting = colorsSetting
-        //ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.systemFont(ofSize: 20))
-        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "American Typewriter", size: 40) ?? UIFont.systemFont(ofSize: 20))
+//        let colorsSetting = ColorSettings(primaryColor: UIColor.systemCyan, secondaryColor: UIColor.yellow, primaryTextColor: UIColor.black, secondaryTextColor: UIColor.white, primaryButtonBGColor: UIColor.blue, secondaryButtonBGColor: UIColor.red)
+//
+//        ThemeSettings.shared.colorSetting = colorsSetting
+//        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.systemFont(ofSize: 20))
+//        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "American Typewriter", size: 40) ?? UIFont.systemFont(ofSize: 20))
         
         
 //        let vc = OfferVC(nibName: "OfferVC", bundle: bundle)

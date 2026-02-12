@@ -20,9 +20,9 @@ extension UIView {
     
     func dropShadow()  {
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize.zero;
-        self.layer.shadowRadius = 1.0;
-        self.layer.shadowOpacity = 0.5;
+        self.layer.shadowOffset = CGSize(width: 0, height: 4);
+        self.layer.shadowRadius = 4.0;
+        self.layer.shadowOpacity = 0.1;
         self.layer.masksToBounds = false;
         self.clipsToBounds = false;
     }
@@ -137,9 +137,6 @@ extension UILabel{
     func setHTMLStringToLabel(text: String, align: NSTextAlignment = .left) {
         let titleParagraphStyle = NSMutableParagraphStyle()
         titleParagraphStyle.alignment = align
-        
-        
-        
         
         guard let attributedString = text.htmlToAttributedString else { return }
         

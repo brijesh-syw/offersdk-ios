@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SDWebImage
+private import SDWebImage
 
 final public class OfferVC: UIViewController {
     
@@ -26,28 +26,33 @@ final public class OfferVC: UIViewController {
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var tblOffer: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-       
+    
+    @IBOutlet weak var vwCategory: UIView!
+    
     @IBOutlet weak var vwClose: UIView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        vwCategory.isHidden = true
         getData()
         
        
-        self.collectionOffer.register(UINib(nibName: "OfferCollectionCell", bundle: getCurrentBundle(self)), forCellWithReuseIdentifier: "OfferCollectionCell")
-        self.tblOffer.register(UINib(nibName: "OfferTableCell", bundle: getCurrentBundle(self)), forCellReuseIdentifier: "OfferTableCell")
+//        self.collectionOffer.register(UINib(nibName: "OfferCollectionCell", bundle: getCurrentBundle(self)), forCellWithReuseIdentifier: "OfferCollectionCell")
+//        self.tblOffer.register(UINib(nibName: "OfferTableCell", bundle: getCurrentBundle(self)), forCellReuseIdentifier: "OfferTableCell")
 
         let bundle = Bundle(for: type(of: self))
         self.collectionCategory.register(UINib(nibName: "OfferCategoryCell", bundle: bundle), forCellWithReuseIdentifier: "OfferCategoryCell")
         self.collectionOffer.register(UINib(nibName: "OfferGridCollectionCell", bundle: bundle), forCellWithReuseIdentifier: "OfferGridCollectionCell")
                 
-        
-//        getSetupData()
         configureSDWebImage()
         
         tblOffer.isHidden = true
         collectionOffer.isHidden = false
+        
+        vwCategory.layer.borderColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.3).cgColor
+        vwCategory.layer.borderWidth = 1
+        
         
     }
     
@@ -86,70 +91,94 @@ final public class OfferVC: UIViewController {
     
     func setupData() {
         //
-        let arr = offerRespModel?.contentOffers ?? []
         
+        getSetupData()
         
-        
-        let registered  = arr.filter { obj in
-            return obj.isRegisteredOffer == true
-        }.sorted(by: { obj1, obj2 in
-            let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-            let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-            
-//            if(obj1EndDate == obj2EndDate){
-//                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
-//            }
-            return obj1EndDate < obj2EndDate
-        })
-        
-        let unRegistered  = arr.filter { obj in
-            return obj.isRegisteredOffer == false
-        }.sorted(by: { obj1, obj2 in
-            let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-            let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-//            if(obj1EndDate == obj2EndDate){
-//                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
-//            }
-            return obj1EndDate < obj2EndDate
-        })
-        
-        
-        
-        
-        arrOffer = []
-        
-        arrOffer.append(contentsOf: registered)
-        arrOffer.append(contentsOf: unRegistered)
-        
-        
-        
-//        arrOffer = offerRespModel?.offers?.getAvailableOffer() ?? []
-        self.collectionOffer.reloadData()
-//        self.tblOffer.reloadData()
-    }
-    
-    func updateData(model:CellModel) {
-//        if model.cellType == .FilterAvailable {
-//            arrOffer = offerRespModel?.offers?.getAvailableOffer() ?? []
-//        }
-//        else if model.cellType == .FilterRedeemed {
-//            arrOffer = offerRespModel?.offers?.getRedeemedOffer() ?? []
-//        }
-//        else if model.cellType == .FilterExpired {
-//            arrOffer = offerRespModel?.offers?.getExpiredOffer() ?? []
-//        }
+//        let arr = offerRespModel?.contentOffers ?? []
 //
+//        
+//        let registered  = arr.filter { obj in
+//            return obj.isRegisteredOffer == true
+//        }.sorted(by: { obj1, obj2 in
+//            let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+//            let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+//            
+////            if(obj1EndDate == obj2EndDate){
+////                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
+////            }
+//            return obj1EndDate < obj2EndDate
+//        })
+//        
+//        let unRegistered  = arr.filter { obj in
+//            return obj.isRegisteredOffer == false
+//        }.sorted(by: { obj1, obj2 in
+//            let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+//            let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+////            if(obj1EndDate == obj2EndDate){
+////                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
+////            }
+//            return obj1EndDate < obj2EndDate
+//        })
+//        
+//        
+//        
+//        
+//        arrOffer = []
+//        
+//        arrOffer.append(contentsOf: registered)
+//        arrOffer.append(contentsOf: unRegistered)
+//        
+//        
 //        self.collectionOffer.reloadData()
 //        self.tblOffer.reloadData()
     }
     
-//    func getSetupData() {
-//        arrData.append(CellModel.getModel(text: "Available", type: CellType.FilterAvailable, isSelected: true))
-//        arrData.append(CellModel.getModel(text: "Redeemed", type: CellType.FilterRedeemed, isSelected: false))
-//        arrData.append(CellModel.getModel(text: "Expired", type: CellType.FilterExpired, isSelected: false))
+    func updateData(model:CellModel) {
 //
-//        collectionCategory.reloadData()
-//    }
+        if model.cellType == .FilterAvailable {
+            arrOffer = offerRespModel?.getAvailableOffers() ?? []
+        }
+        else if model.cellType == .FilterAdded {
+            arrOffer = offerRespModel?.getAddedOffers() ?? []
+        }
+        else if model.cellType == .FilterExpiringSoon {
+            arrOffer = offerRespModel?.getExpiringSoonOffers() ?? []
+        }
+        self.collectionOffer.reloadData()
+//        self.tblOffer.reloadData()
+    }
+    
+    func getSetupData(isAddedNew:Bool = false) {
+        if isAddedNew {
+            let addedArr = offerRespModel?.getAddedOffers()
+            arrData = arrData.map({ model in
+                let tempModel = model
+                if tempModel.cellType == .FilterAdded {
+                    tempModel.text = "Added (\(addedArr?.count ?? 0))"
+                }
+                return tempModel
+            })
+            collectionCategory.reloadData()
+        
+        }
+        else {
+            arrData.removeAll()
+            let availableArr = offerRespModel?.getAvailableOffers()
+            let available = CellModel.getModel(text: "Available (\(availableArr?.count ?? 0))", type: CellType.FilterAvailable, isSelected: true)
+            arrData.append(available)
+            updateData(model: available)
+            
+            let addedArr = offerRespModel?.getAddedOffers()
+            arrData.append(CellModel.getModel(text: "Added (\(addedArr?.count ?? 0))", type: CellType.FilterAdded, isSelected: false))
+            
+            let expiringSoonArr = offerRespModel?.getExpiringSoonOffers()
+            arrData.append(CellModel.getModel(text: "Expiring Soon (\(expiringSoonArr?.count ?? 0))", type: CellType.FilterExpiringSoon, isSelected: false))
+
+            collectionCategory.reloadData()
+        }
+        
+        vwCategory.isHidden = false
+    }
     
     //MARK: - IBActions
     @IBAction func btnClose_Clicked(_ sender: UIButton) {
@@ -201,16 +230,17 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(collectionView == collectionOffer) {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfferGridCollectionCell", for: indexPath) as? OfferGridCollectionCell
+            let model = arrOffer[indexPath.row]
                         
-            cell?.setData(model: arrOffer[indexPath.row], config: config)
+            cell?.setData(model: model, config: config)
             cell?.onClickRegister = {
-                self.registerOffer(index: indexPath.row, model: self.arrOffer[indexPath.row])
+                self.registerOffer(index: indexPath.row, model: model)
             }
             
             return cell ?? UICollectionViewCell()
         }
         else if(collectionView == collectionCategory) {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OfferCategoryCell", for: indexPath) as? OfferCategoryCell
+            let cell = collectionCategory.dequeueReusableCell(withReuseIdentifier: "OfferCategoryCell", for: indexPath) as? OfferCategoryCell
             cell?.setData(model: arrData[indexPath.row])
             return cell ?? UICollectionViewCell()
         }
@@ -224,16 +254,22 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             if (UIDevice.current.userInterfaceIdiom == .pad) {
                 //24
                 let width = ((collectionView.frame.size.width) / 4) - 8
-                return CGSize(width: width, height: 250)
+                return CGSize(width: width, height: 256)
             }
             else {
                 let width = ((collectionView.frame.size.width) / 2) - 4
-                return CGSize(width: width, height: 250)
+                return CGSize(width: width, height: 256)
             }
             
         }
         else if(collectionView == collectionCategory) {
-            let width = ((collectionCategory.frame.size.width) / 3) - 8
+            
+            let text = arrData[indexPath.item].text ?? ""
+            let font = UIFont.systemFont(ofSize: 18, weight: .medium)
+
+            let width = text.size(withAttributes: [.font: font]).width + 6
+            
+//            let width = ((collectionCategory.frame.size.width) / 4)
             return CGSize(width: width, height: collectionCategory.frame.size.height)
         }
         return CGSize(width: 0, height: 0)
@@ -284,16 +320,37 @@ extension OfferVC : UITableViewDataSource, UITableViewDelegate {
 extension OfferVC {
     
     func registerOffer(index:Int, model: OfferModel) {
-        
+        print("Index : \(index)")
         activityIndicator.startAnimating()
         session.registerOffer(model: model) { successMsg in
+            print("Index : \(index)")
             print("Success : \(successMsg ?? "")")
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.arrOffer[index].isRegister = "Y"
-                self.collectionOffer.reloadData()
+//                self.collectionOffer.reloadData()
+                
+                var offers = self.offerRespModel?.contentOffers ?? []
+
+                offers = offers.map { obj in
+                    var offer = obj
+                    if offer.contentId == model.contentId {
+                        offer.isRegister = "Y"
+                    }
+                    return offer
+                }
+
+                self.offerRespModel?.contentOffers = offers
+                
+                
+                self.getSetupData(isAddedNew: true)
+                UIView.performWithoutAnimation {
+                    self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
+                }
+                
             }
         } completionWithError: { errorMsg in
+            print("Index : \(index)")
             print("Failure : \(errorMsg ?? "")")
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
@@ -302,3 +359,4 @@ extension OfferVC {
         }
     }
 }
+

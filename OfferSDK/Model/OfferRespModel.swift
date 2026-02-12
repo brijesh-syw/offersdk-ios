@@ -29,6 +29,36 @@ struct OfferRespModel : Codable {
 
     var contentOffers : [OfferModel]?
     
+    func getAvailableOffers() -> [OfferModel] {
+//        return contentOffers?.filter({ model in
+//            if (model.used == "N") {
+//                //
+//                if let currentDT = Date().getUTCDate(),
+//                    let offerStarttDT = Date().getUTCDateFromString(dt: model.startDTTM ?? ""),
+//                    let offerEndDT = Date().getUTCDateFromString(dt: model.endDTTM ?? "") {
+//
+//                    return ((offerStarttDT < currentDT) && (currentDT < offerEndDT))
+//                }
+//            }
+//            return false
+//
+//        }) ?? []
+        
+        return contentOffers ?? []
+    }
+    
+    func getAddedOffers() -> [OfferModel] {
+        return contentOffers?.filter({ model in
+            return model.isRegisteredOffer == true
+        }) ?? []
+    }
+    
+    func getExpiringSoonOffers() -> [OfferModel] {
+        return contentOffers?.filter({ model in
+            return model.isExpireSoon == true
+        }) ?? []
+    }
+    
 }
 
 struct OfferModel : Codable {
@@ -79,6 +109,13 @@ struct OfferModel : Codable {
             return "Expires on: \(endDate)"
         }
         return ""
+    }
+    
+    func isShowAddButton() -> Bool {
+        if let offercode = sywOffercode, offercode.count > 0 {
+            return true
+        }
+        return false
     }
     
     var isExpireSoon : Bool {

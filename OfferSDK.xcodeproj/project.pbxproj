@@ -15,10 +15,9 @@
 		4C2EF66B2C7CB22900778CD6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF66A2C7CB22900778CD6 /* plus.png */; };
 		4C2EF66F2C7DEE6800778CD6 /* OfferContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF66D2C7DEE6800778CD6 /* OfferContentVC.swift */; };
 		4C2EF6702C7DEE6800778CD6 /* OfferContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF66E2C7DEE6800778CD6 /* OfferContentVC.xib */; };
-		4C2EF6722C7DF5F700778CD6 /* greenTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF6712C7DF5F700778CD6 /* greenTick.png */; };
+		4C2EF6722C7DF5F700778CD6 /* greenTick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF6712C7DF5F700778CD6 /* greenTick2.png */; };
 		4C2EF6742C85BDAD00778CD6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF6732C85BDAD00778CD6 /* String+Extension.swift */; };
 		4C9352392CE75CB500359C7F /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9352382CE75CB500359C7F /* SDWebImage.xcframework */; };
-		4C93523A2CE75CB500359C7F /* SDWebImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9352382CE75CB500359C7F /* SDWebImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CA832A02C47E2750035D55E /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8329F2C47E2750035D55E /* DateUtilities.swift */; };
 		4CA832A32C4E9A210035D55E /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA832A12C4E9A210035D55E /* grid.png */; };
 		4CA832A42C4E9A210035D55E /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA832A22C4E9A210035D55E /* list.png */; };
@@ -34,7 +33,7 @@
 		4CCDD88A2C85F15200434C4E /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8892C85F15200434C4E /* placeholder.png */; };
 		4CCDD88E2C88803000434C4E /* OfferGridCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCDD88C2C88803000434C4E /* OfferGridCollectionCell.swift */; };
 		4CCDD88F2C88803000434C4E /* OfferGridCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD88D2C88803000434C4E /* OfferGridCollectionCell.xib */; };
-		4CCDD8912C88827700434C4E /* plus_round.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8902C88827700434C4E /* plus_round.png */; };
+		4CCDD8912C88827700434C4E /* plus_round2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8902C88827700434C4E /* plus_round2.png */; };
 		4CCDD8972C8885B800434C4E /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8932C8885B800434C4E /* 4.jpg */; };
 		4CCDD8982C8885B800434C4E /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8942C8885B800434C4E /* 1.jpg */; };
 		4CCDD8992C8885B800434C4E /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CCDD8952C8885B800434C4E /* 2.jpg */; };
@@ -78,6 +77,9 @@
 		4CD967A02C3FF54C00849416 /* OfferConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9679F2C3FF54C00849416 /* OfferConstants.swift */; };
 		4CD967A52C3FF8B400849416 /* OfferCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD967A32C3FF8B400849416 /* OfferCategoryCell.swift */; };
 		4CD967A62C3FF8B400849416 /* OfferCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD967A42C3FF8B400849416 /* OfferCategoryCell.xib */; };
+		4CF2995D2F3A13000076B5A8 /* plus_round.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF2995C2F3A13000076B5A8 /* plus_round.png */; };
+		4CF2995E2F3A13000076B5A8 /* greenTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF2995B2F3A13000076B5A8 /* greenTick.png */; };
+		4CF299602F3A150E0076B5A8 /* dummy_brand.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF2995F2F3A150E0076B5A8 /* dummy_brand.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,17 +93,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		4C93523B2CE75CB500359C7F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4C93523A2CE75CB500359C7F /* SDWebImage.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4CCDD8862C85E1D000434C4E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +115,7 @@
 		4C2EF66A2C7CB22900778CD6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		4C2EF66D2C7DEE6800778CD6 /* OfferContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContentVC.swift; sourceTree = "<group>"; };
 		4C2EF66E2C7DEE6800778CD6 /* OfferContentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferContentVC.xib; sourceTree = "<group>"; };
-		4C2EF6712C7DF5F700778CD6 /* greenTick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTick.png; sourceTree = "<group>"; };
+		4C2EF6712C7DF5F700778CD6 /* greenTick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTick2.png; sourceTree = "<group>"; };
 		4C2EF6732C85BDAD00778CD6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C2EF7D52C85D93B00778CD6 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../../Desktop/SDWebImage.xcframework/ios-arm64/SDWebImage.framework"; sourceTree = "<group>"; };
 		4C2EF7D92C85D98F00778CD6 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../../Desktop/SDWebImage 2.xcframework/ios-arm64/SDWebImage.framework"; sourceTree = "<group>"; };
@@ -143,7 +134,7 @@
 		4CCDD8892C85F15200434C4E /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		4CCDD88C2C88803000434C4E /* OfferGridCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferGridCollectionCell.swift; sourceTree = "<group>"; };
 		4CCDD88D2C88803000434C4E /* OfferGridCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferGridCollectionCell.xib; sourceTree = "<group>"; };
-		4CCDD8902C88827700434C4E /* plus_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_round.png; sourceTree = "<group>"; };
+		4CCDD8902C88827700434C4E /* plus_round2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_round2.png; sourceTree = "<group>"; };
 		4CCDD8932C8885B800434C4E /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		4CCDD8942C8885B800434C4E /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		4CCDD8952C8885B800434C4E /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
@@ -190,6 +181,9 @@
 		4CD9679F2C3FF54C00849416 /* OfferConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferConstants.swift; sourceTree = "<group>"; };
 		4CD967A32C3FF8B400849416 /* OfferCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferCategoryCell.swift; sourceTree = "<group>"; };
 		4CD967A42C3FF8B400849416 /* OfferCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferCategoryCell.xib; sourceTree = "<group>"; };
+		4CF2995B2F3A13000076B5A8 /* greenTick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTick.png; sourceTree = "<group>"; };
+		4CF2995C2F3A13000076B5A8 /* plus_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_round.png; sourceTree = "<group>"; };
+		4CF2995F2F3A150E0076B5A8 /* dummy_brand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_brand.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,9 +249,11 @@
 			isa = PBXGroup;
 			children = (
 				4CCDD8922C8885AD00434C4E /* Dummy */,
-				4CCDD8902C88827700434C4E /* plus_round.png */,
+				4CCDD8902C88827700434C4E /* plus_round2.png */,
+				4CF2995B2F3A13000076B5A8 /* greenTick.png */,
+				4CF2995C2F3A13000076B5A8 /* plus_round.png */,
 				4CCDD8892C85F15200434C4E /* placeholder.png */,
-				4C2EF6712C7DF5F700778CD6 /* greenTick.png */,
+				4C2EF6712C7DF5F700778CD6 /* greenTick2.png */,
 				4C2EF66A2C7CB22900778CD6 /* plus.png */,
 				4C2EF6682C7CACE600778CD6 /* american_express.png */,
 				4CA832A12C4E9A210035D55E /* grid.png */,
@@ -317,6 +313,7 @@
 		4CCDD8922C8885AD00434C4E /* Dummy */ = {
 			isa = PBXGroup;
 			children = (
+				4CF2995F2F3A150E0076B5A8 /* dummy_brand.png */,
 				4CCDD8942C8885B800434C4E /* 1.jpg */,
 				4CCDD8952C8885B800434C4E /* 2.jpg */,
 				4CCDD8962C8885B800434C4E /* 3.jpg */,
@@ -546,7 +543,6 @@
 				4CD9673C2C2EB1F500849416 /* Sources */,
 				4CD9673D2C2EB1F500849416 /* Frameworks */,
 				4CD9673E2C2EB1F500849416 /* Resources */,
-				4C93523B2CE75CB500359C7F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -622,15 +618,17 @@
 				4C2EF6692C7CACE600778CD6 /* american_express.png in Resources */,
 				4C2EF66B2C7CB22900778CD6 /* plus.png in Resources */,
 				4CA832A42C4E9A210035D55E /* list.png in Resources */,
+				4CF2995D2F3A13000076B5A8 /* plus_round.png in Resources */,
+				4CF2995E2F3A13000076B5A8 /* greenTick.png in Resources */,
 				4CD967822C32E32B00849416 /* offerImage.png in Resources */,
 				4C2EF6622C7CA8E600778CD6 /* OfferMainVC.xib in Resources */,
 				4CD9678B2C3FDC3B00849416 /* filter.png in Resources */,
 				4CD9679D2C3FE48100849416 /* selected_checkbox.png in Resources */,
 				4C2EF6702C7DEE6800778CD6 /* OfferContentVC.xib in Resources */,
 				4CD9676E2C2EB2EC00849416 /* OfferCollectionCell.xib in Resources */,
-				4CCDD8912C88827700434C4E /* plus_round.png in Resources */,
+				4CCDD8912C88827700434C4E /* plus_round2.png in Resources */,
 				4CD9679B2C3FE47B00849416 /* checkbox.png in Resources */,
-				4C2EF6722C7DF5F700778CD6 /* greenTick.png in Resources */,
+				4C2EF6722C7DF5F700778CD6 /* greenTick2.png in Resources */,
 				4CCDD8972C8885B800434C4E /* 4.jpg in Resources */,
 				4CCDD88A2C85F15200434C4E /* placeholder.png in Resources */,
 				4CCDD88F2C88803000434C4E /* OfferGridCollectionCell.xib in Resources */,
@@ -645,6 +643,7 @@
 				4CCDD8992C8885B800434C4E /* 2.jpg in Resources */,
 				4CD967A62C3FF8B400849416 /* OfferCategoryCell.xib in Resources */,
 				4CD967972C3FE08300849416 /* FilterCell.xib in Resources */,
+				4CF299602F3A150E0076B5A8 /* dummy_brand.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +878,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syw.OfferSDK;
@@ -908,6 +908,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.syw.OfferSDK;
@@ -927,7 +928,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -937,15 +938,16 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.syw.Tell-Externalization";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.syw.offers-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.syw.Tell-Externalization Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Rewards Offer SDK Development Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -960,7 +962,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -970,15 +972,16 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.syw.Tell-Externalization";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.syw.offers-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.syw.Tell-Externalization Development";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Rewards Offer SDK Development Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
