@@ -19,62 +19,45 @@ import UIKit
 
 class FontScheme: NSObject {
 
-    static func fontFromConstant(fontType:Int = 0, fontName: String, size : CGFloat) -> UIFont {
+    static func fontFromConstant(fontName: String, size : CGFloat) -> UIFont {
         
         var result = UIFont()
-//        if fontType > 0 && fontType < 5 {
-//            switch fontType {
-//            case 1: // Section header
-//                result = self.kBoldFont(size: 18)
-//                break
-//            case 2: // header
-//                result = self.kBoldFont(size: 16)
-//                break
-//            case 3: // Sub header
-//                result = self.kMediumFont(size: 14)
-//                break
-//            case 4: // Description
-//                result = self.kRegularFont(size: 14)
-//                break
-//            default:
-//                break
-//            }
-//        }
-//        else {
-            switch fontName {
-            case "kRegularFont":
-                result = self.kRegularFont(size: size)
-                break
-//            case "kBoldFont":
-//                result = self.kBoldFont(size: size)
-//                break
-//            case "kMediumFont":
-//                result = self.kMediumFont(size: size)
-//                break
-            default:
-                result = self.kRegularFont(size: size)
-            }
-//        }
+        switch fontName {
+        case "kRegularFont":
+            result = self.kRegularFont(size: size)
+            break
+        case "kBoldFont":
+            result = self.kBoldFont(size: size)
+            break
+        case "kMediumFont":
+            result = self.kMediumFont(size: size)
+            break
+        default:
+            result = self.kRegularFont(size: size)
+        }
         
         return result
     }
     
     //Regular
     static func kRegularFont(size : CGFloat) -> UIFont  {
-        
-        return UIFont(name: ThemeSettings.shared.fontSetting.font.familyName, size: size)!
+                
+        return ThemeSettings.shared.fontSetting.regularFont.withSize(size)
     }
     
-//    //Medium
-//    static func kMediumFont(size : CGFloat) -> UIFont  {
-//
-//        return UIFont(name: FontConstant.kMediumFont, size: size)!
-//    }
-//
-//    //Bold
-//    static func kBoldFont(size : CGFloat) -> UIFont  {
-//
-//        return UIFont(name: FontConstant.kBoldFont, size: size)!
-//    }
+    //Medium
+    static func kMediumFont(size : CGFloat) -> UIFont  {
+
+        return ThemeSettings.shared.fontSetting.mediumFont.withSize(size)
+    }
+
+    //Bold
+    static func kBoldFont(size : CGFloat) -> UIFont  {
+        
+        return ThemeSettings.shared.fontSetting.boldFont.withSize(size)
+        
+
+//        return UIFont(name: ThemeSettings.shared.fontSetting.boldFont.fontName, size: size)!
+    }
     
 }

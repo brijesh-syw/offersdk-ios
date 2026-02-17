@@ -31,6 +31,12 @@ final public class OfferVC: UIViewController {
     
     @IBOutlet weak var vwClose: UIView!
     
+    @IBOutlet weak var lblHeaderTitle: UILabel!
+    @IBOutlet weak var lblHeaderBadge: UILabel!
+    @IBOutlet weak var vwHeaderBadge: UIView!
+    @IBOutlet weak var lblBodyText: UILabel!
+    
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +62,11 @@ final public class OfferVC: UIViewController {
         
     }
     
+//    public override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        vwHeaderBadge.setGradientBackground(colorTop: UIColor(rgb: 0xfbbf24), colorBottom: UIColor(rgb: 0xf59e0b))
+//    }
+    
     func getData() {
         guard config != nil else { fatalError("Config is not set. Please use setConfig.") }
         session = APIClient(with: config)
@@ -77,6 +88,7 @@ final public class OfferVC: UIViewController {
         }
     }
     
+    
     func configureSDWebImage() {
         
         let imageDownloader = SDWebImageDownloader.shared
@@ -91,6 +103,19 @@ final public class OfferVC: UIViewController {
     
     func setupData() {
         //
+        
+        lblHeaderTitle.text = offerRespModel?.offerBannerDetails?.header?.title ?? ""
+        lblHeaderBadge.text = offerRespModel?.offerBannerDetails?.header?.badge ?? ""
+        lblBodyText.text = offerRespModel?.offerBannerDetails?.body?.text ?? ""
+        lblBodyText.textColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.8)
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+            self.vwHeaderBadge.setGradientBackground(colorTop: UIColor(rgb: 0xfbbf24), colorBottom: UIColor(rgb: 0xf59e0b))
+            self.vwHeaderBadge.dropShadow()
+        })
+        
+        
         
         getSetupData()
         
@@ -132,6 +157,9 @@ final public class OfferVC: UIViewController {
 //        self.collectionOffer.reloadData()
 //        self.tblOffer.reloadData()
     }
+    
+    
+    
     
     func updateData(model:CellModel) {
 //
@@ -254,11 +282,11 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             if (UIDevice.current.userInterfaceIdiom == .pad) {
                 //24
                 let width = ((collectionView.frame.size.width) / 4) - 8
-                return CGSize(width: width, height: 256)
+                return CGSize(width: width, height: 216)
             }
             else {
                 let width = ((collectionView.frame.size.width) / 2) - 4
-                return CGSize(width: width, height: 256)
+                return CGSize(width: width, height: 216)
             }
             
         }

@@ -26,6 +26,7 @@ struct OfferRespModel : Codable {
     let code : String
     let responseTime : String
     let traceId : String
+    var offerBannerDetails : OfferBannerDetailModel?
 
     var contentOffers : [OfferModel]?
     
@@ -93,6 +94,10 @@ struct OfferModel : Codable {
     var isRegister : String?
     var regStartDate : String?
     var regEndDate : String?
+    
+    var brandLogo : String?
+    var brandName : String?
+    var isExpiringSoon : String?
 
     
     var isRegisteredOffer : Bool {
@@ -106,7 +111,7 @@ struct OfferModel : Codable {
     
     func getOfferEndCaption() -> String {
         if let endDate = offerEndDate {
-            return "Expires on: \(endDate)"
+            return "Expires \(endDate)"
         }
         return ""
     }
@@ -119,20 +124,25 @@ struct OfferModel : Codable {
     }
     
     var isExpireSoon : Bool {
-        if(isRegister == "Y" || isRegister == "y") {
-            //date logic
-            if let endDT = offerEndDate, let offerEndDate = Date().getDateFromString(dt: endDT, formate: "yyyy/MM/dd") {
-                //
-                let next5DaysDt = Calendar.current.date(byAdding: Calendar.Component.day, value: 5, to: Date())!
-                print("Next 5 days date: \(next5DaysDt)")
-                if(offerEndDate <= next5DaysDt) {
-                    return true
-                }
-                else {
-                    return false
-                }
-            }
-            
+//        if(isRegister == "Y" || isRegister == "y") {
+//            //date logic
+//            if let endDT = offerEndDate, let offerEndDate = Date().getDateFromString(dt: endDT, formate: "yyyy/MM/dd") {
+//                //
+//                let next5DaysDt = Calendar.current.date(byAdding: Calendar.Component.day, value: 5, to: Date())!
+//                print("Next 5 days date: \(next5DaysDt)")
+//                if(offerEndDate <= next5DaysDt) {
+//                    return true
+//                }
+//                else {
+//                    return false
+//                }
+//            }
+//            
+//        }
+        
+        
+        if (isExpiringSoon == "Y" || isExpiringSoon == "y") {
+            return true
         }
         return false
     }
@@ -164,8 +174,25 @@ struct OfferModel : Codable {
     }
 }
 
+struct OfferBannerDetailModel : Codable {
+    
+    var header : OfferBannerHeaderModel?
+    var body : OfferBannerBodyModel?
+    
+}
 
+struct OfferBannerHeaderModel : Codable {
+    
+    var title : String?
+    var badge : String?
+    
+}
 
+struct OfferBannerBodyModel : Codable {
+    
+    var text : String?
+    
+}
 
 struct OfferRegisterRespModel : Codable {
     
@@ -215,6 +242,7 @@ struct ImageUrlModel : Codable {
 //        }
 //    }
 }
+
 enum DynamicJSONProperty: Codable {
     case obj(ImageUrlModel)
     case string(String)
@@ -243,6 +271,7 @@ enum DynamicJSONProperty: Codable {
         }
     }
 }
+
 
 
 //struct OffersData : Codable {

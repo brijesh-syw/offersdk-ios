@@ -19,7 +19,9 @@ class OfferGridCollectionCell: UICollectionViewCell {
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var vwBg: UIView!
     @IBOutlet weak var vwExpireSoon: UIView!
-    
+    @IBOutlet weak var imgBrand: UIImageView!
+    @IBOutlet weak var lblBrandName: UILabel!
+    @IBOutlet weak var lblExpireSoonCaption: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,10 +70,21 @@ class OfferGridCollectionCell: UICollectionViewCell {
 //        lblHeadline.setHTMLStringToLabel(text: "<p>Light up your cart with festive discounts.</p>", align: .center)
         //lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
         
+        lblBrandName.text = model.brandName ?? " "
         DispatchQueue.main.async {
-            self.lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
-            self.lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
+            self.lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .left)
+//            self.lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .left)
         }
+        
+        if let brandLogo = model.brandLogo, brandLogo.count > 0 {
+            imgBrand.isHidden = false
+            imgBrand.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgBrand.sd_setImage(with: URL(string: brandLogo))
+        }
+        else {
+            imgBrand.isHidden = true
+        }
+        
         
         imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         imgView.sd_setImage(with: URL(string: model.getImageURL(env: config.environment)), placeholderImage: UIImage(named: "placeholder.png", in: bundle, with: .none))
@@ -92,20 +105,30 @@ class OfferGridCollectionCell: UICollectionViewCell {
             btnAdd.isHidden = true
         }
         
-        
-        if model.isExpireSoon {
-            vwExpireSoon.isHidden = false
-            vwBg.layer.borderColor = UIColor.red.withAlphaComponent(0.8).cgColor
+        if model.isRegisteredOffer {
+            vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
         }
         else {
-            vwExpireSoon.isHidden = true
-            if model.isRegisteredOffer {
-                vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
-            }
-            else {
-                vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
-            }
+            vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
         }
+        
+        vwExpireSoon.isHidden = true
+        lblExpireSoonCaption.isHidden = !model.isExpireSoon
+        
+        
+//        if model.isExpireSoon {
+//            vwExpireSoon.isHidden = false
+//            vwBg.layer.borderColor = UIColor.red.withAlphaComponent(0.8).cgColor
+//        }
+//        else {
+//            vwExpireSoon.isHidden = true
+//            if model.isRegisteredOffer {
+//                vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
+//            }
+//            else {
+//                vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
+//            }
+//        }
     }
     
     

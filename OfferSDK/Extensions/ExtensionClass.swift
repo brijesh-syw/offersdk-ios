@@ -138,7 +138,7 @@ extension UILabel{
         let titleParagraphStyle = NSMutableParagraphStyle()
         titleParagraphStyle.alignment = align
         
-        guard let attributedString = text.htmlToAttributedString else { return }
+        guard let attributedString = text.htmlToAttributedString(font: self.font) else { return }
         
         
         let range = NSRange.init(location: 0, length: attributedString.length)

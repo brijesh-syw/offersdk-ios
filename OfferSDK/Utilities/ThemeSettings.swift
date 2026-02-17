@@ -41,16 +41,20 @@ public struct ColorSettings {
 
 public struct FontSettings {
     
-    var font: UIFont
+    var regularFont: UIFont
+    var mediumFont: UIFont
+    var boldFont: UIFont
     
-    public init(font: UIFont) {
+    public init(regularFont: UIFont, mediumFont: UIFont, boldFont: UIFont) {
         
-        self.font = font
+        self.regularFont = regularFont
+        self.mediumFont = mediumFont
+        self.boldFont = boldFont
     }
     
-    static public func getDefaultFont() -> FontSettings {
+    static public func getDefaultFont() -> FontSettings {    
         
-        return FontSettings(font: UIFont.systemFont(ofSize: 18))
+        return FontSettings(regularFont: UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: UIFont.boldSystemFont(ofSize: 18))
     }
 }
 

@@ -139,8 +139,13 @@ extension ViewController {
 //
 //        ThemeSettings.shared.colorSetting = colorsSetting
 //        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.systemFont(ofSize: 20))
+        
+        
+//        ThemeSettings.shared.fontSetting = FontSettings(regularFont: UIFont.init(name: "Times New Roman", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: UIFont.init(name: "Times New Roman", size: 18) ??  UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: UIFont.init(name: "Times New Roman Bold", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .bold))
+        
 //        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "American Typewriter", size: 40) ?? UIFont.systemFont(ofSize: 20))
         
+        ThemeSettings.shared.fontSetting = FontSettings.getDefaultFont()
         
 //        let vc = OfferVC(nibName: "OfferVC", bundle: bundle)
 //        let vc = OfferMainVC(nibName: "OfferMainVC", bundle: bundle)

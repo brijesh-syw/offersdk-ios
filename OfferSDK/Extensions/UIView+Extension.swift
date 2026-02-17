@@ -20,6 +20,21 @@ extension UIView {
         self.layer.borderColor = color.cgColor
     }
     
+    func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor ]
+//        gradientLayer.colors = [UIColor.red.cgColor, UIColor.green.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.2, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 0.8, y: 1.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = bounds
+        gradientLayer.cornerRadius = self.layer.cornerRadius
+
+       layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    
+    
     @discardableResult   // 1
     func fromNib<T : UIView>() -> T? {   // 2
         guard let contentView = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? T else {    // 3
