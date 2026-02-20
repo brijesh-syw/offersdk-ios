@@ -310,7 +310,7 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
 //        }
         
         if(collectionView == collectionOffer) {
-            let vc = OfferContentVC(nibName: "OfferContentVC", bundle: getCurrentBundle(self))
+            let vc = OfferContent2VC(nibName: "OfferContent2VC", bundle: getCurrentBundle(self))
             vc.offerModel = arrOffer[indexPath.row]
             vc.environment = config.environment
             

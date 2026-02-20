@@ -134,7 +134,7 @@ extension UILabel{
         }
     }
     
-    func setHTMLStringToLabel(text: String, align: NSTextAlignment = .left) {
+    func setHTMLStringToLabel(text: String, align: NSTextAlignment = .left, makeBold: Bool = false) {
         let titleParagraphStyle = NSMutableParagraphStyle()
         titleParagraphStyle.alignment = align
         
@@ -161,14 +161,42 @@ extension UILabel{
 //                range: range)
 //        }
         
+        let targetFontSize = self.font.pointSize   // 👈 Take size from XIB
+        let baseFont = self.font                   // 👈 Font set in XIB
+        
+        attributedString.enumerateAttribute(.font, in: range) { value, range, _ in
+            if let currentFont = value as? UIFont {
+                
+                var descriptor = currentFont.fontDescriptor
+                
+                if makeBold {
+                    descriptor = descriptor.withSymbolicTraits(
+                        descriptor.symbolicTraits.union(.traitBold)
+                    ) ?? descriptor
+                }
+                
+                let updatedFont = UIFont(descriptor: descriptor, size: targetFontSize)
+                attributedString.addAttribute(.font, value: updatedFont, range: range)
+                
+            }
+            else if let baseFont = baseFont {
+                // If HTML didn't provide font
+                attributedString.addAttribute(.font, value: baseFont, range: range)
+            }
+        }
+        
         
         titleParagraphStyle.lineSpacing = 0
         titleParagraphStyle.paragraphSpacing = 0
         titleParagraphStyle.paragraphSpacingBefore = 0
         
+        titleParagraphStyle.minimumLineHeight = 0
+        titleParagraphStyle.maximumLineHeight = 0
+        
+        
         self.attributedText = attributedString
         self.numberOfLines = 0
-        self.sizeToFit()
+//        self.sizeToFit()
     }
 }
 

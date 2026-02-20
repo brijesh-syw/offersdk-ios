@@ -45,6 +45,13 @@ class OfferGridCollectionCell: UICollectionViewCell {
         
         imgView.roundCorners([.topLeft, .topRight], radius: 8)
         imgView.clipsToBounds = true
+        imgBrand.clipsToBounds = true
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        lblHeadline.attributedText = nil
+        lblHeadline.text = nil
     }
     
     
@@ -66,14 +73,10 @@ class OfferGridCollectionCell: UICollectionViewCell {
     func setData(model: OfferModel, config: OfferConfig) {
         let bundle = getCurrentBundle(self)
         
-//        lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
-//        lblHeadline.setHTMLStringToLabel(text: "<p>Light up your cart with festive discounts.</p>", align: .center)
-        //lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
         
         lblBrandName.text = model.brandName ?? " "
         DispatchQueue.main.async {
             self.lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .left)
-//            self.lblBodyline.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .left)
         }
         
         if let brandLogo = model.brandLogo, brandLogo.count > 0 {

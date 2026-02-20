@@ -30,7 +30,7 @@ class OfferContentVC: UIViewController {
 
         let bundle = getCurrentBundle(self)
         imgClose.image = UIImage(named: "close.png", in: bundle, with: .none)?.withRenderingMode(.alwaysTemplate)
-        setupData()
+//        setupData()
             
     }
     
@@ -40,8 +40,9 @@ class OfferContentVC: UIViewController {
 //            lblName.text = model.offerName ?? ""
             
 //            let content = model.getContent()
-            lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .center)
-            lblBodyLine.setHTMLStringToLabel(text: model.bodyline1 ?? "", align: .center)
+            lblHeadline.setHTMLStringToLabel(text: model.getWholeHeadline(), align: .center)
+            lblBodyLine.setHTMLStringToLabel(text: model.getWholeBodyline(), align: .center)
+            
             lblDesclaimer.text = model.disclaimerLegalCopy ?? ""
             imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgView.sd_setImage(with: URL(string: model.getImageURL(env: environment ?? OfferEnvironment.prod)), placeholderImage: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))

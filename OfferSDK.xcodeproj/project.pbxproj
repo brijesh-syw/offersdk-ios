@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -185,6 +185,11 @@
 		4CF2995C2F3A13000076B5A8 /* plus_round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_round.png; sourceTree = "<group>"; };
 		4CF2995F2F3A150E0076B5A8 /* dummy_brand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_brand.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4C33B12C2F45F59A0038F9FA /* OfferContent2VC */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OfferContent2VC; sourceTree = "<group>"; };
+		4C99326C2F47469B00C263C7 /* Font */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Font; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4CD9673D2C2EB1F500849416 /* Frameworks */ = {
@@ -403,6 +408,7 @@
 		4CD967652C2EB25800849416 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4C33B12C2F45F59A0038F9FA /* OfferContent2VC */,
 				4C2EF66C2C7DEE5200778CD6 /* OfferContentVC */,
 				4C2EF65E2C7CA8CD00778CD6 /* OfferMainVC */,
 				4C2EF65D2C7CA8C100778CD6 /* OfferVC */,
@@ -458,6 +464,7 @@
 		4CD967802C32E32000849416 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C99326C2F47469B00C263C7 /* Font */,
 				4C2EF6752C85D57400778CD6 /* Images */,
 			);
 			path = Resources;
@@ -547,6 +554,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4C33B12C2F45F59A0038F9FA /* OfferContent2VC */,
+				4C99326C2F47469B00C263C7 /* Font */,
 			);
 			name = OfferSDK;
 			productName = OfferSDK;

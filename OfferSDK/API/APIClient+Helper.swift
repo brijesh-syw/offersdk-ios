@@ -196,12 +196,14 @@ extension APIClient {
         
         let contentOffer : [String:Any] = [
             "sywrOfferCode": model.sywOffercode ?? "",
-            "offerStartDate": Date().getDateString(dt: offerStartDate, formate: "yyyy-MM-dd"),
-            "offerEndDate": Date().getDateString(dt: offerEndDate, formate: "yyyy-MM-dd"),
-            "redemptionStart": Date().getDateString(dt: redemptionStartDate, formate: "yyyy-MM-dd"),
-            "redemptionEnd": Date().getDateString(dt: redemptionEndDate, formate: "yyyy-MM-dd"),
-            "redemptionEndOffset": model.redemptionEndOffset ?? "",
-            "redemptionStartOffset": model.redemptionStartOffset ?? "",
+//            "offerStartDate": Date().getDateString(dt: offerStartDate, formate: "yyyy-MM-dd"),
+//            "offerEndDate": Date().getDateString(dt: offerEndDate, formate: "yyyy-MM-dd"),
+//            "redemptionStart": Date().getDateString(dt: redemptionStartDate, formate: "yyyy-MM-dd"),
+//            "redemptionEnd": Date().getDateString(dt: redemptionEndDate, formate: "yyyy-MM-dd"),
+//            "redemptionEndOffset": model.redemptionEndOffset ?? "",
+//            "redemptionStartOffset": model.redemptionStartOffset ?? "",
+            "registrationStartDate" : Date().getDateString(dt: Date(), formate: "yyyy-MM-dd"),
+            "registrationEndDate" : model.calculateRegistrationEndDate(),
             "contentId": model.contentId ?? "",
             "offerType": model.offerType ?? ""
         ]

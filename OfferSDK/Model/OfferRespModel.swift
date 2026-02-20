@@ -77,15 +77,21 @@ struct OfferModel : Codable {
     var offerType : String?
     var disclaimerLegalCopy : String?
     var headline1 : String?
+    var headline2 : String?
+    var headline3 : String?
+    var headline4 : String?
     var staticImage:String?
     var imageUrl1 : DynamicJSONProperty?
     var imageId : String?
     var imageName : String?
-    var headline2 : String?
     var offerDescription : String?
     var permanentBlacklist : String?
     var redemptionEndOffset : String?
     var bodyline1 : String?
+    var bodyline2 : String?
+    var bodyline3 : String?
+    var bodyline4 : String?
+    var ctaButtonText : String?
     var redemptionStartOffset : String?
     var category : String?
     var redemptionStart : String?
@@ -98,7 +104,8 @@ struct OfferModel : Codable {
     var brandLogo : String?
     var brandName : String?
     var isExpiringSoon : String?
-
+    var offsetDays : String?
+    
     
     var isRegisteredOffer : Bool {
         if(isRegister == "Y" || isRegister == "y") {
@@ -124,27 +131,45 @@ struct OfferModel : Codable {
     }
     
     var isExpireSoon : Bool {
-//        if(isRegister == "Y" || isRegister == "y") {
-//            //date logic
-//            if let endDT = offerEndDate, let offerEndDate = Date().getDateFromString(dt: endDT, formate: "yyyy/MM/dd") {
-//                //
-//                let next5DaysDt = Calendar.current.date(byAdding: Calendar.Component.day, value: 5, to: Date())!
-//                print("Next 5 days date: \(next5DaysDt)")
-//                if(offerEndDate <= next5DaysDt) {
-//                    return true
-//                }
-//                else {
-//                    return false
-//                }
-//            }
-//            
-//        }
+        //        if(isRegister == "Y" || isRegister == "y") {
+        //            //date logic
+        //            if let endDT = offerEndDate, let offerEndDate = Date().getDateFromString(dt: endDT, formate: "yyyy/MM/dd") {
+        //                //
+        //                let next5DaysDt = Calendar.current.date(byAdding: Calendar.Component.day, value: 5, to: Date())!
+        //                print("Next 5 days date: \(next5DaysDt)")
+        //                if(offerEndDate <= next5DaysDt) {
+        //                    return true
+        //                }
+        //                else {
+        //                    return false
+        //                }
+        //            }
+        //
+        //        }
         
         
         if (isExpiringSoon == "Y" || isExpiringSoon == "y") {
             return true
         }
         return false
+    }
+    
+    func calculateRegistrationEndDate() -> String {
+        
+        let offSet = Int(offsetDays ?? "0") ?? 0
+        
+        let currentPlusOffset = Calendar.current.date(byAdding: Calendar.Component.day, value: offSet, to: Date())!
+        
+        let offerEndDate = Date().getDateFromString(dt: offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+        
+        //current date+offset or offerEndDate which ever is early
+        if(currentPlusOffset <= offerEndDate) {
+            return Date().getDateString(dt: currentPlusOffset, formate: "yyyy-MM-dd")
+        }
+        else {
+            return Date().getDateString(dt: offerEndDate, formate: "yyyy-MM-dd")
+        }
+        
     }
     
     func getImageURL(env:OfferEnvironment) -> String {
@@ -163,17 +188,62 @@ struct OfferModel : Codable {
             return imgURL
         }
         
-//        if let imgURL = imageUrl1, (imgURL.imageId?.count ?? 0) > 0 {
-//            return env.getImageBaseURL(imageId: imgURL.imageId ?? "", imageName: imgURL.imageName ?? "", partnerId: imgURL.partnerId ?? "")
-//        }
-//        else if let imgURL = staticImage, imgURL.count > 0, imgURL.contains("http") {
-//            return imgURL
-//        }
+        //        if let imgURL = imageUrl1, (imgURL.imageId?.count ?? 0) > 0 {
+        //            return env.getImageBaseURL(imageId: imgURL.imageId ?? "", imageName: imgURL.imageName ?? "", partnerId: imgURL.partnerId ?? "")
+        //        }
+        //        else if let imgURL = staticImage, imgURL.count > 0, imgURL.contains("http") {
+        //            return imgURL
+        //        }
         
         return ""
     }
+    
+    func getWholeHeadline(isSkipFirst:Bool = false) -> String {
+        var arrHeadline : [String] = []
+        
+        if !isSkipFirst, let headLineText = headline1, headLineText.count > 0 {
+            arrHeadline.append(headLineText)
+        }
+        if let headLineText = headline2, headLineText.count > 0 {
+            arrHeadline.append(headLineText)
+        }
+        if let headLineText = headline3, headLineText.count > 0 {
+            arrHeadline.append(headLineText)
+        }
+        if let headLineText = headline4, headLineText.count > 0 {
+            arrHeadline.append(headLineText)
+        }
+        
+        return arrHeadline.joined(separator: "<br><br>")
+    }
+    
+    func getWholeBodyline() -> String {
+        var arrBodyline : [String] = []
+        
+        if let bodyLineText = bodyline1, bodyLineText.count > 0 {
+            arrBodyline.append(bodyLineText)
+        }
+        if let bodyLineText = bodyline2, bodyLineText.count > 0 {
+            arrBodyline.append(bodyLineText)
+        }
+        if let bodyLineText = bodyline3, bodyLineText.count > 0 {
+            arrBodyline.append(bodyLineText)
+        }
+        if let bodyLineText = bodyline4, bodyLineText.count > 0 {
+            arrBodyline.append(bodyLineText)
+        }
+        
+        return arrBodyline.joined(separator: "<br><br>")
+    }
+    
+    func getButtonText() -> String {
+        if let btnText = ctaButtonText, btnText.count > 0 {
+            return ctaButtonText ?? ""
+        }
+        return "Go to Website"
+    }
+    
 }
-
 struct OfferBannerDetailModel : Codable {
     
     var header : OfferBannerHeaderModel?

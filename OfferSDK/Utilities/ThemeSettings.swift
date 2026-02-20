@@ -33,6 +33,7 @@ public struct ColorSettings {
         
         return ColorSettings(primaryColor: UIColor(rgb: 0x0066cc), secondaryColor: UIColor.yellow, primaryTextColor: UIColor.black, secondaryTextColor: UIColor.white, primaryButtonBGColor: UIColor.red, secondaryButtonBGColor: UIColor.black)
         
+        
         //return ColorSettings(primaryColor: UIColor.blue, secondaryColor: UIColor.blue, primaryTextColor: UIColor.blue, secondaryTextColor: UIColor.blue, primaryButtonBGColor: UIColor.blue, secondaryButtonBGColor: UIColor.white)
        
     }
@@ -54,8 +55,17 @@ public struct FontSettings {
     
     static public func getDefaultFont() -> FontSettings {    
         
-        return FontSettings(regularFont: UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: UIFont.boldSystemFont(ofSize: 18))
+        SDKFontLoader.registerFonts()
+        
+        let regular = UIFont.init(name: "Poppins-Regular", size: 20)
+        let medium = UIFont.init(name: "Poppins-Medium", size: 20)
+        let bold = UIFont.init(name: "Poppins-Bold", size: 20)
+        
+        return FontSettings(regularFont: regular ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: medium ?? UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: bold ?? UIFont.boldSystemFont(ofSize: 18))
     }
+    
+    
+    
 }
 
 
@@ -72,3 +82,33 @@ public class ThemeSettings : NSObject {
     }
 }
 
+
+public final class SDKFontLoader {
+
+    private static let fontFiles = [
+        "Poppins-Regular",
+        "Poppins-Medium",
+        "Poppins-Bold"
+    ]
+
+    public static func registerFonts() {
+        //        let bundle = Bundle(for: BundleFinder.self)
+        let bundle = getCurrentBundle(self)
+        
+        fontFiles.forEach { fontName in
+            
+            // 👇 Check if already registered
+            if UIFont(name: fontName, size: 12) != nil {
+                return
+            }
+            
+            
+            guard let url = bundle.url(forResource: fontName, withExtension: "ttf") else {
+                print("❌ Font not found: \(fontName)")
+                return
+            }
+            
+            CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+        }
+    }
+}

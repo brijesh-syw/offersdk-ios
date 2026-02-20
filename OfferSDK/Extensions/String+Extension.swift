@@ -26,7 +26,19 @@ extension String {
 //         let font = UIFont(name: ThemeSettings.shared.fontSetting.regularFont.familyName, size: 30)
         
 //        let modifiedFont = String(format:"<span style=\"font-family: \(font2.familyName);\">%@</span>", self)
-        let modifiedFont = String(format:"<span style=\"font-family: \(font.fontName);\">%@</span>", self)
+        
+//        let font2 = UIFont.init(name: "Chalkduster", size: 40)
+        
+        //Chalkduster
+        
+        
+        let cleanedText = self
+            .replacingOccurrences(of: "<p>", with: "")
+            .replacingOccurrences(of: "</p>", with: "")
+        
+        
+        
+        let modifiedFont = String(format:"<span style=\"font-family: \(font.fontName);\">%@</span>", cleanedText)
         
         
 //        let modifiedFont = String(format:"<span style=\"font-family: \(font2.fontName);\">%@</span>", self)
