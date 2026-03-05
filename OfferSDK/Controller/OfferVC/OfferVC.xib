@@ -16,11 +16,13 @@
                 <outlet property="lblBodyText" destination="zdO-sh-MRR" id="uyO-Az-gjc"/>
                 <outlet property="lblHeaderBadge" destination="uzZ-D4-rI7" id="Zjd-hx-t38"/>
                 <outlet property="lblHeaderTitle" destination="X7Q-QO-GXT" id="XMB-Rg-67A"/>
+                <outlet property="lblNoData" destination="TfX-9y-qw7" id="mDu-g5-A5C"/>
                 <outlet property="segmentControl" destination="T9W-39-bdN" id="zeo-bE-Qpw"/>
                 <outlet property="tblOffer" destination="B8A-dN-a5m" id="bbm-KY-a0t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="vwCategory" destination="KAo-Ys-HG7" id="ZxE-7v-0o1"/>
                 <outlet property="vwClose" destination="ppO-EP-vUo" id="xM8-Qr-deC"/>
+                <outlet property="vwHeader" destination="cig-6W-H8a" id="hFv-Yz-6Yo"/>
                 <outlet property="vwHeaderBadge" destination="2NJ-G2-Riv" id="d0G-Ik-zlZ"/>
             </connections>
         </placeholder>
@@ -37,6 +39,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="FontName" value="kMediumFont"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2q-Q2-DXK">
                             <rect key="frame" x="353" y="10" width="24" height="24"/>
@@ -134,69 +139,6 @@
                         </mask>
                     </variation>
                 </view>
-                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-dN-a5m">
-                    <rect key="frame" x="16" y="284" width="361" height="500"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="97t-P5-nFF"/>
-                        <outlet property="delegate" destination="-1" id="N20-Ia-oAx"/>
-                    </connections>
-                </tableView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9FO-2f-hKT">
-                    <rect key="frame" x="16" y="284" width="361" height="500"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="erd-Ng-2Tr">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="wUF-IH-nMf"/>
-                        <outlet property="delegate" destination="-1" id="77z-zd-ZmJ"/>
-                    </connections>
-                </collectionView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Eux-hI-9qU">
-                    <rect key="frame" x="0.0" y="162" width="393" height="622"/>
-                    <color key="color" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="TintColorKey" value="kPrimaryColor"/>
-                    </userDefinedRuntimeAttributes>
-                </activityIndicatorView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAo-Ys-HG7">
-                    <rect key="frame" x="16" y="236" width="361" height="40"/>
-                    <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TpP-3c-R6e">
-                            <rect key="frame" x="4" y="4" width="353" height="32"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="gUA-wS-HgV"/>
-                            </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3Q8-lm-e6A">
-                                <size key="itemSize" width="128" height="128"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="1WC-r4-0jh"/>
-                                <outlet property="delegate" destination="-1" id="R4S-gh-isl"/>
-                            </connections>
-                        </collectionView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.92495733499999999" green="0.94072121379999996" blue="0.97928780319999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="TpP-3c-R6e" secondAttribute="trailing" constant="4" id="bVE-Nj-bGA"/>
-                        <constraint firstAttribute="bottom" secondItem="TpP-3c-R6e" secondAttribute="bottom" constant="4" id="lz1-vV-r9r"/>
-                        <constraint firstItem="TpP-3c-R6e" firstAttribute="leading" secondItem="KAo-Ys-HG7" secondAttribute="leading" constant="4" id="rR5-5J-mbt"/>
-                        <constraint firstItem="TpP-3c-R6e" firstAttribute="top" secondItem="KAo-Ys-HG7" secondAttribute="top" constant="4" id="uKa-yC-lWL"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
-                            <real key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cig-6W-H8a">
                     <rect key="frame" x="16" y="170" width="361" height="58"/>
                     <subviews>
@@ -276,16 +218,90 @@
                         <constraint firstAttribute="bottom" secondItem="3FO-56-ARP" secondAttribute="bottom" id="WDe-zK-Rm0"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAo-Ys-HG7">
+                    <rect key="frame" x="16" y="236" width="361" height="40"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TpP-3c-R6e">
+                            <rect key="frame" x="4" y="4" width="353" height="32"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="gUA-wS-HgV"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3Q8-lm-e6A">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="1WC-r4-0jh"/>
+                                <outlet property="delegate" destination="-1" id="R4S-gh-isl"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92495733499999999" green="0.94072121379999996" blue="0.97928780319999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="TpP-3c-R6e" secondAttribute="trailing" constant="4" id="bVE-Nj-bGA"/>
+                        <constraint firstAttribute="bottom" secondItem="TpP-3c-R6e" secondAttribute="bottom" constant="4" id="lz1-vV-r9r"/>
+                        <constraint firstItem="TpP-3c-R6e" firstAttribute="leading" secondItem="KAo-Ys-HG7" secondAttribute="leading" constant="4" id="rR5-5J-mbt"/>
+                        <constraint firstItem="TpP-3c-R6e" firstAttribute="top" secondItem="KAo-Ys-HG7" secondAttribute="top" constant="4" id="uKa-yC-lWL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-dN-a5m">
+                    <rect key="frame" x="16" y="284" width="361" height="500"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="97t-P5-nFF"/>
+                        <outlet property="delegate" destination="-1" id="N20-Ia-oAx"/>
+                    </connections>
+                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9FO-2f-hKT">
+                    <rect key="frame" x="16" y="284" width="361" height="500"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="erd-Ng-2Tr">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="wUF-IH-nMf"/>
+                        <outlet property="delegate" destination="-1" id="77z-zd-ZmJ"/>
+                    </connections>
+                </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Eux-hI-9qU">
+                    <rect key="frame" x="0.0" y="162" width="393" height="622"/>
+                    <color key="color" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="TintColorKey" value="kPrimaryColor"/>
+                    </userDefinedRuntimeAttributes>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available offers at this time." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfX-9y-qw7">
+                    <rect key="frame" x="97.000000000000014" y="460" width="199.33333333333337" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.42745098039215684" green="0.41960784313725491" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="FontName" value="kRegularFont"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9FO-2f-hKT" firstAttribute="top" secondItem="KAo-Ys-HG7" secondAttribute="bottom" constant="8" id="1XY-Tu-oii"/>
                 <constraint firstItem="Eux-hI-9qU" firstAttribute="top" secondItem="2ua-e7-0rj" secondAttribute="bottom" id="4Af-fl-rmf"/>
+                <constraint firstItem="TfX-9y-qw7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4HU-Jv-KuN"/>
                 <constraint firstItem="KAo-Ys-HG7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="5dY-OO-odD"/>
                 <constraint firstItem="cig-6W-H8a" firstAttribute="top" secondItem="2ua-e7-0rj" secondAttribute="bottom" constant="8" id="Bna-lS-e81"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B8A-dN-a5m" secondAttribute="trailing" constant="16" id="IPf-LC-Baw"/>
                 <constraint firstItem="B8A-dN-a5m" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="O7v-qp-oKs"/>
+                <constraint firstItem="TfX-9y-qw7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.1" id="P8U-hq-bwR"/>
                 <constraint firstItem="Eux-hI-9qU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RHx-yo-FTz"/>
                 <constraint firstItem="2ua-e7-0rj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Sjn-h5-ukp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Eux-hI-9qU" secondAttribute="bottom" id="Z4M-0S-PbY"/>

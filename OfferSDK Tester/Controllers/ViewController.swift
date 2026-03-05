@@ -46,11 +46,12 @@ class ViewController: UIViewController {
         }
         
         let builder = OfferBuilder(refId: refId,
-                    environment: self.localConfig.environment,
-                    merchantId: self.localConfig.merchantId,
-                    organization: self.localConfig.organization,
-                    programType: self.localConfig.programType)
-                         
+                                   environment: self.localConfig.environment,
+                                   merchantId: self.localConfig.merchantId,
+                                   organization: self.localConfig.organization,
+                                   programType: self.localConfig.programType,
+                                   memberNumber: self.localConfig.memberNumber)
+        
         let offerConfig = builder.build()
         offerVC = builder.getOfferVC(config: offerConfig)
     }
@@ -89,7 +90,7 @@ private extension ViewController {
             return false
         }
         
-//        let memberNumber = UserDefaults.standard.string(forKey: "Member_Number") ?? ""
+        let memberNumber = UserDefaults.standard.string(forKey: "Member_Number") ?? ""
         let merchantId = UserDefaults.standard.string(forKey: "Merchant_Id") ?? ""
         
         let organization = UserDefaults.standard.string(forKey: "organization") ?? Constants.organisation
@@ -101,7 +102,7 @@ private extension ViewController {
 //        let sdkVersion = UserDefaults.standard.string(forKey: "sdkVersion") ?? ""
         
         
-        localConfig = LocalConfiguration(refId: refID, merchantId: merchantId, environment: Constants.environment, organization: organization, programType: programType)
+        localConfig = LocalConfiguration(refId: refID, merchantId: merchantId, environment: Constants.environment, organization: organization, programType: programType, memberNumber: memberNumber)
         
         return true
     }

@@ -14,6 +14,7 @@ struct LocalConfiguration {
     let environment: OfferEnvironment
     let organization : String
     let programType : String
+    let memberNumber : String
 //    let isShowMemberNumber:Bool
 //    let isShowMemberName:Bool
 //    let isShowExpiringPoints:Bool
@@ -94,7 +95,8 @@ final class ConfigurationViewController: UIViewController {
 //            isShowMemberName: showMemberNameSwitch.isOn,
 //            isShowExpiringPoints: showExpiringPointsSwitch.isOn,
             organization: organizationTextField.text ?? "",
-            programType: programTypeTextField.text ?? ""
+            programType: programTypeTextField.text ?? "",
+            memberNumber: memberNumberTextField.text ?? ""
             
         )
 //
@@ -147,7 +149,7 @@ private extension ConfigurationViewController {
         setupTextField(textField: refIdTextField)
         setupTextField(textField: merchantIdTextField)
         setupTextField(textField: programTypeTextField)
-//        setupTextField(textField: transactionIdTextField)
+        setupTextField(textField: memberNumberTextField)
 //        setupTextField(textField: totalDueTextField)
 //        setupTextField(textField: payTypeTextField)
         setupTextField(textField: organizationTextField)
@@ -230,7 +232,7 @@ private extension ConfigurationViewController {
         
         merchantIdTextField.text = config.merchantId
         programTypeTextField.text = config.programType
-//        memberNumberTextField.text = config.memberNumber
+        memberNumberTextField.text = config.memberNumber
         refIdTextField.text = config.refId
         
        

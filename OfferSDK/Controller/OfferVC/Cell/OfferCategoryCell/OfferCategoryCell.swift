@@ -39,11 +39,13 @@ class OfferCategoryCell: UICollectionViewCell {
             vwIndicator.backgroundColor = ThemeSettings.shared.colorSetting.primaryColor
             lblText.textColor = .white
             vwBg.backgroundColor = ThemeSettings.shared.colorSetting.primaryColor
+            lblText.font = ThemeSettings.shared.fontSetting.mediumFont.withSize(14)
         }
         else {
             vwIndicator.backgroundColor = UIColor.clear
             lblText.textColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.7)
             vwBg.backgroundColor = .clear
+            lblText.font = ThemeSettings.shared.fontSetting.regularFont.withSize(14)
         }
         
     }

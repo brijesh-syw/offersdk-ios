@@ -33,6 +33,43 @@ extension UIView {
        layer.insertSublayer(gradientLayer, at: 0)
     }
     
+//    func addDashedBorder(radius: CGFloat, color: UIColor, dashPattern: [NSNumber] = [4, 4]) {
+//        let shapeLayer = CAShapeLayer()
+//        shapeLayer.strokeColor = color.cgColor
+//        shapeLayer.lineWidth = 2
+//        shapeLayer.lineDashPattern = dashPattern
+//        shapeLayer.fillColor = nil
+//        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+//        self.layer.addSublayer(shapeLayer)
+//    }
+    
+    func addDashedBorder(cornerRadius: CGFloat, dashPattern: [NSNumber] = [4, 2], borderColor: UIColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.4), borderWidth: CGFloat = 1) {
+       
+        removeDashBorder()
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.name = "DashedBorderLayer"
+        shapeLayer.bounds = self.bounds
+        shapeLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = borderColor.cgColor
+        shapeLayer.lineWidth = borderWidth
+        shapeLayer.lineDashPattern = dashPattern
+        
+        let path = UIBezierPath(
+            roundedRect: self.bounds,
+            cornerRadius: cornerRadius
+        )
+        
+        shapeLayer.path = path.cgPath
+        
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    func removeDashBorder() {
+        // Remove old dashed layers if any
+        self.layer.sublayers?.removeAll(where: { $0.name == "DashedBorderLayer" })
+    }
+    
     
     
     @discardableResult   // 1

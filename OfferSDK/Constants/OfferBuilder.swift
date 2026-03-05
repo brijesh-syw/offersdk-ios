@@ -19,6 +19,7 @@ public final class OfferBuilder {
     private var merchantId: String = Constants.defaultMerchantId
     private var organization : String = Constants.organisation
     private var programType : String  = ""
+    private var memberNumber : String  = ""
 //    private let showMemberNumber:Bool
 //    private let showMemberName:Bool
 //    private let showExpiringPoints:Bool
@@ -34,12 +35,13 @@ public final class OfferBuilder {
         - environmet: Develpment or production environment.
         - delegate: AnyObject which will listen for updates from the SDK.
      */
-    public init(refId: String, environment: OfferEnvironment, merchantId: String, organization: String, programType : String) {
+    public init(refId: String, environment: OfferEnvironment, merchantId: String, organization: String, programType : String, memberNumber : String) {
         self.refId = refId
         self.environment = environment
         self.merchantId = merchantId
         self.organization = organization
         self.programType = programType
+        self.memberNumber = memberNumber
     }
     
     /**
@@ -51,7 +53,8 @@ public final class OfferBuilder {
             environment: environment,
             merchantId: merchantId,
             organization: organization,
-            programType : programType
+            programType : programType,
+            memberNumber : memberNumber
         )
     }
     

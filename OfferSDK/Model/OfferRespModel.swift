@@ -29,6 +29,7 @@ struct OfferRespModel : Codable {
     var offerBannerDetails : OfferBannerDetailModel?
 
     var contentOffers : [OfferModel]?
+    var staticContentOffers : [OfferModel]?
     
     func getAvailableOffers() -> [OfferModel] {
 //        return contentOffers?.filter({ model in
@@ -45,7 +46,17 @@ struct OfferRespModel : Codable {
 //
 //        }) ?? []
         
-        return contentOffers ?? []
+        var arr = contentOffers ?? []
+        
+        let fidemOffer = staticContentOffers ?? []
+        let arrStaticOffers = fidemOffer.map { obj in
+            var model = obj
+            model.isStaticOffer = true
+            return model
+        }
+        
+        arr.append(contentsOf: arrStaticOffers)
+        return arr
     }
     
     func getAddedOffers() -> [OfferModel] {
@@ -105,6 +116,7 @@ struct OfferModel : Codable {
     var brandName : String?
     var isExpiringSoon : String?
     var offsetDays : String?
+    var isStaticOffer : Bool? = false
     
     
     var isRegisteredOffer : Bool {
@@ -117,8 +129,22 @@ struct OfferModel : Codable {
     }
     
     func getOfferEndCaption() -> String {
-        if let endDate = offerEndDate {
+        if (isStaticOffer ?? false) {
+            return "No expiration — always active"
+        }
+        else if let endDate = offerEndDate {
             return "Expires \(endDate)"
+        }
+        return ""
+    }
+    
+    func getOfferEndCaptionForDetailPage() -> String {
+        if (isStaticOffer ?? false) {
+            return "No expiration — always active"
+        }
+        else if let endDate = offerEndDate {
+            let dt = Date().getDateFromString(dt: endDate, formate: "yyyy/MM/dd") ?? Date()
+            return "Expires on \(Date().getDateString(dt: dt, formate: "MMMM dd, yyyy"))"
         }
         return ""
     }

@@ -36,6 +36,8 @@ final public class OfferVC: UIViewController {
     @IBOutlet weak var vwHeaderBadge: UIView!
     @IBOutlet weak var lblBodyText: UILabel!
     
+    @IBOutlet weak var lblNoData: UILabel!
+    @IBOutlet weak var vwHeader: UIView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +82,7 @@ final public class OfferVC: UIViewController {
 
             }
         } completionWithError: { errorMsg in
-            print(errorMsg ?? "")
+            debugPrint(errorMsg ?? "")
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.showToast(message: errorMsg ?? "")
@@ -203,9 +205,21 @@ final public class OfferVC: UIViewController {
             arrData.append(CellModel.getModel(text: "Expiring Soon (\(expiringSoonArr?.count ?? 0))", type: CellType.FilterExpiringSoon, isSelected: false))
 
             collectionCategory.reloadData()
+            
+            
+            if (availableArr?.count ?? 0) > 0 {
+                //
+                vwHeader.isHidden = false
+                vwCategory.isHidden = false
+                lblNoData.isHidden = true
+            }
+            else {
+                vwHeader.isHidden = true
+                vwCategory.isHidden = true
+                lblNoData.isHidden = false
+            }
         }
         
-        vwCategory.isHidden = false
     }
     
     //MARK: - IBActions
@@ -282,20 +296,20 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             if (UIDevice.current.userInterfaceIdiom == .pad) {
                 //24
                 let width = ((collectionView.frame.size.width) / 4) - 8
-                return CGSize(width: width, height: 216)
+                return CGSize(width: width, height: 222)
             }
             else {
                 let width = ((collectionView.frame.size.width) / 2) - 4
-                return CGSize(width: width, height: 216)
+                return CGSize(width: width, height: 222)
             }
             
         }
         else if(collectionView == collectionCategory) {
             
             let text = arrData[indexPath.item].text ?? ""
-            let font = UIFont.systemFont(ofSize: 18, weight: .medium)
+            let font = UIFont.systemFont(ofSize: 16, weight: .medium)
 
-            let width = text.size(withAttributes: [.font: font]).width + 6
+            let width = text.size(withAttributes: [.font: font]).width + 12
             
 //            let width = ((collectionCategory.frame.size.width) / 4)
             return CGSize(width: width, height: collectionCategory.frame.size.height)
@@ -312,7 +326,11 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
         if(collectionView == collectionOffer) {
             let vc = OfferContent2VC(nibName: "OfferContent2VC", bundle: getCurrentBundle(self))
             vc.offerModel = arrOffer[indexPath.row]
-            vc.environment = config.environment
+            vc.config = config
+            
+            vc.onRegisterOffer = { offerModel in
+                self.updateOffer(index: indexPath.row, model: offerModel)
+            }
             
 //            vc.isModalInPresentation = true
             vc.modalPresentationStyle = .custom
@@ -348,42 +366,43 @@ extension OfferVC : UITableViewDataSource, UITableViewDelegate {
 extension OfferVC {
     
     func registerOffer(index:Int, model: OfferModel) {
-        print("Index : \(index)")
         activityIndicator.startAnimating()
         session.registerOffer(model: model) { successMsg in
-            print("Index : \(index)")
-            print("Success : \(successMsg ?? "")")
+            debugPrint("Index : \(index)")
+            debugPrint("Success : \(successMsg ?? "")")
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-                self.arrOffer[index].isRegister = "Y"
-//                self.collectionOffer.reloadData()
-                
-                var offers = self.offerRespModel?.contentOffers ?? []
-
-                offers = offers.map { obj in
-                    var offer = obj
-                    if offer.contentId == model.contentId {
-                        offer.isRegister = "Y"
-                    }
-                    return offer
-                }
-
-                self.offerRespModel?.contentOffers = offers
-                
-                
-                self.getSetupData(isAddedNew: true)
-                UIView.performWithoutAnimation {
-                    self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
-                }
+                self.updateOffer(index: index, model: model)
                 
             }
         } completionWithError: { errorMsg in
-            print("Index : \(index)")
-            print("Failure : \(errorMsg ?? "")")
+            debugPrint("Index : \(index)")
+            debugPrint("Failure : \(errorMsg ?? "")")
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.showToast(message: errorMsg ?? "Something went wrong!!!")
             }
+        }
+    }
+    
+    
+    func updateOffer(index:Int, model: OfferModel) {
+        var offers = self.offerRespModel?.contentOffers ?? []
+        self.arrOffer[index].isRegister = "Y"
+
+        offers = offers.map { obj in
+            var offer = obj
+            if offer.contentId == model.contentId {
+                offer.isRegister = "Y"
+            }
+            return offer
+        }
+
+        self.offerRespModel?.contentOffers = offers
+        
+        self.getSetupData(isAddedNew: true)
+        UIView.performWithoutAnimation {
+            self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
         }
     }
 }

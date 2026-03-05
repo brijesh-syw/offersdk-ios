@@ -14,7 +14,7 @@ class OfferGridCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblHeadline: UILabel!
-    @IBOutlet weak var lblBodyline: UILabel!
+//    @IBOutlet weak var lblBodyline: UILabel!
     @IBOutlet weak var lblExpiry: UILabel!
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var vwBg: UIView!
@@ -22,6 +22,8 @@ class OfferGridCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imgBrand: UIImageView!
     @IBOutlet weak var lblBrandName: UILabel!
     @IBOutlet weak var lblExpireSoonCaption: UILabel!
+    @IBOutlet weak var vwActivated: UIView!
+    @IBOutlet weak var stackExpiry: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +32,7 @@ class OfferGridCollectionCell: UICollectionViewCell {
         
 //        vwBg.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.8).cgColor
 //        vwBg.layer.borderColor = UIColor.red.withAlphaComponent(0.8).cgColor
-        vwBg.layer.borderWidth = 1
+        
         vwBg.setCornerRadius(radius: 8)
         vwBg.dropShadow()
         
@@ -53,30 +55,15 @@ class OfferGridCollectionCell: UICollectionViewCell {
         lblHeadline.attributedText = nil
         lblHeadline.text = nil
     }
-    
-    
-//    func setData(index:Int, img:String, headline: String, bodyline:String, expiry:String) {
-//        let bundle = getCurrentBundle(self)
-//        imgView.image = UIImage(named: img , in: bundle, with: .none)
-//        lblHeadline.text = headline
-//        lblBodyline.text = bodyline
-//        lblExpiry.text = expiry
-//
-//        if(((index+1) % 3) == 0) {
-//            btnAdd.setImage(UIImage(named: "greenTick.png", in: bundle, with: .none), for: .normal)
-//        }
-//        else {
-//            btnAdd.setImage(UIImage(named: "plus_round.png", in: bundle, with: .none), for: .normal)
-//        }
-//    }
-    
+        
     func setData(model: OfferModel, config: OfferConfig) {
         let bundle = getCurrentBundle(self)
         
-        
+                
         lblBrandName.text = model.brandName ?? " "
         DispatchQueue.main.async {
             self.lblHeadline.setHTMLStringToLabel(text: model.headline1 ?? "", align: .left)
+            self.lblHeadline.numberOfLines = 2
         }
         
         if let brandLogo = model.brandLogo, brandLogo.count > 0 {
@@ -110,13 +97,32 @@ class OfferGridCollectionCell: UICollectionViewCell {
         
         if model.isRegisteredOffer {
             vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
+            vwBg.layer.borderWidth = 1
         }
         else {
             vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
+            vwBg.layer.borderWidth = 1
         }
         
         vwExpireSoon.isHidden = true
-        lblExpireSoonCaption.isHidden = !model.isExpireSoon
+        
+        
+        if model.isStaticOffer ?? false {
+            imgView.alpha = 0.7
+            vwBg.addDashedBorder(cornerRadius: 8)
+            vwActivated.isHidden = false
+            vwBg.layer.borderWidth = 0
+            stackExpiry.isHidden = true
+        }
+        else {
+            imgView.alpha = 1
+            vwBg.removeDashBorder()
+            vwActivated.isHidden = true
+            stackExpiry.isHidden = false
+            
+            lblExpireSoonCaption.isHidden = !model.isExpireSoon
+        }
+        
         
         
 //        if model.isExpireSoon {

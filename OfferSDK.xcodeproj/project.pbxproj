@@ -15,9 +15,9 @@
 		4C2EF66B2C7CB22900778CD6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF66A2C7CB22900778CD6 /* plus.png */; };
 		4C2EF66F2C7DEE6800778CD6 /* OfferContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF66D2C7DEE6800778CD6 /* OfferContentVC.swift */; };
 		4C2EF6702C7DEE6800778CD6 /* OfferContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF66E2C7DEE6800778CD6 /* OfferContentVC.xib */; };
-		4C2EF6722C7DF5F700778CD6 /* greenTick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF6712C7DF5F700778CD6 /* greenTick2.png */; };
 		4C2EF6742C85BDAD00778CD6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF6732C85BDAD00778CD6 /* String+Extension.swift */; };
 		4C9352392CE75CB500359C7F /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9352382CE75CB500359C7F /* SDWebImage.xcframework */; };
+		4C9932742F4C4C1100C263C7 /* greenTick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9932732F4C4C1100C263C7 /* greenTick2.png */; };
 		4CA832A02C47E2750035D55E /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8329F2C47E2750035D55E /* DateUtilities.swift */; };
 		4CA832A32C4E9A210035D55E /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA832A12C4E9A210035D55E /* grid.png */; };
 		4CA832A42C4E9A210035D55E /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA832A22C4E9A210035D55E /* list.png */; };
@@ -115,12 +115,12 @@
 		4C2EF66A2C7CB22900778CD6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		4C2EF66D2C7DEE6800778CD6 /* OfferContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferContentVC.swift; sourceTree = "<group>"; };
 		4C2EF66E2C7DEE6800778CD6 /* OfferContentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferContentVC.xib; sourceTree = "<group>"; };
-		4C2EF6712C7DF5F700778CD6 /* greenTick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTick2.png; sourceTree = "<group>"; };
 		4C2EF6732C85BDAD00778CD6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C2EF7D52C85D93B00778CD6 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../../Desktop/SDWebImage.xcframework/ios-arm64/SDWebImage.framework"; sourceTree = "<group>"; };
 		4C2EF7D92C85D98F00778CD6 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = "../../../../../Desktop/SDWebImage 2.xcframework/ios-arm64/SDWebImage.framework"; sourceTree = "<group>"; };
 		4C2EF7DF2C85DA9E00778CD6 /* SDWebImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = ../../../../../Desktop/SDWebImage.xcframework; sourceTree = "<group>"; };
 		4C9352382CE75CB500359C7F /* SDWebImage.xcframework */ = {isa = PBXFileReference; expectedSignature = "SelfSigned:FC3B101386344C50DB702A9AD1016FB51A3ECC8B9DA9B7AE47A048D4D0633983"; lastKnownFileType = wrapper.xcframework; name = SDWebImage.xcframework; path = OfferSDK/Resources/SDWebImage/SDWebImage.xcframework; sourceTree = "<group>"; };
+		4C9932732F4C4C1100C263C7 /* greenTick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenTick2.png; sourceTree = "<group>"; };
 		4CA8329F2C47E2750035D55E /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		4CA832A12C4E9A210035D55E /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
 		4CA832A22C4E9A210035D55E /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
@@ -256,9 +256,9 @@
 				4CCDD8922C8885AD00434C4E /* Dummy */,
 				4CCDD8902C88827700434C4E /* plus_round2.png */,
 				4CF2995B2F3A13000076B5A8 /* greenTick.png */,
+				4C9932732F4C4C1100C263C7 /* greenTick2.png */,
 				4CF2995C2F3A13000076B5A8 /* plus_round.png */,
 				4CCDD8892C85F15200434C4E /* placeholder.png */,
-				4C2EF6712C7DF5F700778CD6 /* greenTick2.png */,
 				4C2EF66A2C7CB22900778CD6 /* plus.png */,
 				4C2EF6682C7CACE600778CD6 /* american_express.png */,
 				4CA832A12C4E9A210035D55E /* grid.png */,
@@ -639,10 +639,10 @@
 				4CD9676E2C2EB2EC00849416 /* OfferCollectionCell.xib in Resources */,
 				4CCDD8912C88827700434C4E /* plus_round2.png in Resources */,
 				4CD9679B2C3FE47B00849416 /* checkbox.png in Resources */,
-				4C2EF6722C7DF5F700778CD6 /* greenTick2.png in Resources */,
 				4CCDD8972C8885B800434C4E /* 4.jpg in Resources */,
 				4CCDD88A2C85F15200434C4E /* placeholder.png in Resources */,
 				4CCDD88F2C88803000434C4E /* OfferGridCollectionCell.xib in Resources */,
+				4C9932742F4C4C1100C263C7 /* greenTick2.png in Resources */,
 				4CA832A32C4E9A210035D55E /* grid.png in Resources */,
 				4CA832A92C4E9E670035D55E /* OfferTableCell.xib in Resources */,
 				4CCDD89A2C8885B800434C4E /* 3.jpg in Resources */,
@@ -939,7 +939,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -973,7 +973,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -33,7 +33,8 @@ extension APIClient {
             "organization" : config.organization,
             "client_id" : config.merchantId,
             "platform" : "telluride",
-            "refId" : config.refId
+            "refId" : config.refId,
+            "memberNumber" : config.memberNumber,
         ]
 
         request.allHTTPHeaderFields = headers
@@ -57,7 +58,7 @@ extension APIClient {
         request.httpBody = jsonData
         
         if let jsonResponse = try? JSONSerialization.jsonObject(with: jsonData!) as? [String: Any] {
-            print(jsonResponse)
+            debugPrint(jsonResponse)
         }
 
 //        dataTask(with: request, responseType: OfferRespModel.self) { [weak self] result in
@@ -86,20 +87,20 @@ extension APIClient {
             // ensure there is valid response code returned from this HTTP response
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid Response received from the server")
+                debugPrint("Invalid Response received from the server")
                 return
             }
 
             // ensure there is data returned
             guard let responseData = data else {
-                print("nil Data received from the server")
+                debugPrint("nil Data received from the server")
                 return
             }
 
             do {
                 // create json object from data or use JSONDecoder to convert to Model stuct
                 if let jsonResponse = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as? [String: Any] {
-                    print(jsonResponse)
+                    debugPrint(jsonResponse)
 
                     if let data = data, let dict = try? JSONDecoder().decode(OfferRespModel.self, from: data) {
                         
@@ -123,7 +124,7 @@ extension APIClient {
 //                    }
                     else {
                             //
-                        print("======data maybe corrupted or in wrong format")
+                        debugPrint("======data maybe corrupted or in wrong format")
                         DispatchQueue.main.async {
                             completionWithError(commonErrorMsg)
                         }
@@ -131,11 +132,11 @@ extension APIClient {
 
                     // handle json response
                 } else {
-                    print("data maybe corrupted or in wrong format")
+                    debugPrint("data maybe corrupted or in wrong format")
                     throw URLError(.badServerResponse)
                 }
             } catch let error {
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
                 DispatchQueue.main.async {
                     completionWithError(error.localizedDescription)
                 }
@@ -181,17 +182,18 @@ extension APIClient {
             "organization" : config.organization,
             "client_id" : config.merchantId,
             "platform" : "telluride",
-            "refId" : config.refId
+            "refId" : config.refId,
+            "memberNumber" : config.memberNumber,
         ]
 
         request.allHTTPHeaderFields = headers
         
         
-        let offerStartDate = Date().getDateFromString(dt: model.offerStartDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-        let offerEndDate = Date().getDateFromString(dt: model.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-        
-        let redemptionStartDate = Date().getDateFromString(dt: model.redemptionStart ?? "") ?? Date()
-        let redemptionEndDate = Date().getDateFromString(dt: model.redemptionEnd ?? "") ?? Date()
+//        let offerStartDate = Date().getDateFromString(dt: model.offerStartDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+//        let offerEndDate = Date().getDateFromString(dt: model.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+//        
+//        let redemptionStartDate = Date().getDateFromString(dt: model.redemptionStart ?? "") ?? Date()
+//        let redemptionEndDate = Date().getDateFromString(dt: model.redemptionEnd ?? "") ?? Date()
         
         
         let contentOffer : [String:Any] = [

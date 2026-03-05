@@ -196,6 +196,7 @@ extension UILabel{
         
         self.attributedText = attributedString
         self.numberOfLines = 0
+        self.lineBreakMode = .byTruncatingTail
 //        self.sizeToFit()
     }
 }
