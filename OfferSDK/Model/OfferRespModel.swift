@@ -49,7 +49,13 @@ struct OfferRespModel : Codable {
         var arr = contentOffers ?? []
         
         let fidemOffer = staticContentOffers ?? []
-        let arrStaticOffers = fidemOffer.map { obj in
+        
+        let filteredStaticOffer = fidemOffer.filter { obj in
+            return (obj.contentId?.count ?? 0) > 0
+        }
+        
+        let arrStaticOffers = filteredStaticOffer.map { obj in
+            //contentId
             var model = obj
             model.isStaticOffer = true
             return model
@@ -133,7 +139,8 @@ struct OfferModel : Codable {
             return "No expiration — always active"
         }
         else if let endDate = offerEndDate {
-            return "Expires \(endDate)"
+            let dt = Date().getDateFromString(dt: endDate, formate: "yyyy/MM/dd") ?? Date()
+            return "Expires \(Date().getDateString(dt: dt, formate: "MM/dd/yy"))"
         }
         return ""
     }

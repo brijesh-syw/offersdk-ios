@@ -309,7 +309,7 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             let text = arrData[indexPath.item].text ?? ""
             let font = UIFont.systemFont(ofSize: 16, weight: .medium)
 
-            let width = text.size(withAttributes: [.font: font]).width + 12
+            let width = text.size(withAttributes: [.font: font]).width + 14
             
 //            let width = ((collectionCategory.frame.size.width) / 4)
             return CGSize(width: width, height: collectionCategory.frame.size.height)
