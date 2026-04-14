@@ -189,21 +189,8 @@ extension APIClient {
         request.allHTTPHeaderFields = headers
         
         
-//        let offerStartDate = Date().getDateFromString(dt: model.offerStartDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-//        let offerEndDate = Date().getDateFromString(dt: model.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
-//        
-//        let redemptionStartDate = Date().getDateFromString(dt: model.redemptionStart ?? "") ?? Date()
-//        let redemptionEndDate = Date().getDateFromString(dt: model.redemptionEnd ?? "") ?? Date()
-        
-        
         let contentOffer : [String:Any] = [
             "sywrOfferCode": model.sywOffercode ?? "",
-//            "offerStartDate": Date().getDateString(dt: offerStartDate, formate: "yyyy-MM-dd"),
-//            "offerEndDate": Date().getDateString(dt: offerEndDate, formate: "yyyy-MM-dd"),
-//            "redemptionStart": Date().getDateString(dt: redemptionStartDate, formate: "yyyy-MM-dd"),
-//            "redemptionEnd": Date().getDateString(dt: redemptionEndDate, formate: "yyyy-MM-dd"),
-//            "redemptionEndOffset": model.redemptionEndOffset ?? "",
-//            "redemptionStartOffset": model.redemptionStartOffset ?? "",
             "registrationStartDate" : Date().getDateString(dt: Date(), formate: "yyyy-MM-dd"),
             "registrationEndDate" : model.calculateRegistrationEndDate(),
             "contentId": model.contentId ?? "",

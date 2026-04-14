@@ -35,12 +35,19 @@ final public class OfferVC: UIViewController {
     @IBOutlet weak var lblHeaderBadge: UILabel!
     @IBOutlet weak var vwHeaderBadge: UIView!
     @IBOutlet weak var lblBodyText: UILabel!
-    
+    @IBOutlet weak var vwTopHeader: UIView!
+    @IBOutlet weak var vwTopHeaderHeight: NSLayoutConstraint!
     @IBOutlet weak var lblNoData: UILabel!
     @IBOutlet weak var vwHeader: UIView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.updateTopHeader()
+        
+//        DispatchQueue.main.async(execute: {
+//            self.updateTopHeader()
+//        })
         
         vwCategory.isHidden = true
         getData()
@@ -62,6 +69,11 @@ final public class OfferVC: UIViewController {
         vwCategory.layer.borderWidth = 1
         
         
+    }
+    
+    func updateTopHeader() {        
+        vwTopHeaderHeight.constant = config.showTopHeader ? 44 : 0
+        vwTopHeader.isHidden = !config.showTopHeader
     }
     
 //    public override func viewDidAppear(_ animated: Bool) {

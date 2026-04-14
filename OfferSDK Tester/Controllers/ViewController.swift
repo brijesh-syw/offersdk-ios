@@ -49,8 +49,10 @@ class ViewController: UIViewController {
                                    environment: self.localConfig.environment,
                                    merchantId: self.localConfig.merchantId,
                                    organization: self.localConfig.organization,
-                                   programType: self.localConfig.programType,
-                                   memberNumber: self.localConfig.memberNumber)
+//                                   programType: self.localConfig.programType,
+                                   memberNumber: self.localConfig.memberNumber,
+//                                   isShowTopHeader: true
+        )
         
         let offerConfig = builder.build()
         offerVC = builder.getOfferVC(config: offerConfig)

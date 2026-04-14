@@ -16,18 +16,17 @@ public struct OfferConfig {
     let organization : String
     let programType : String
     let memberNumber : String
+    let showTopHeader : Bool
     
-    init(refId: String, environment: OfferEnvironment, merchantId: String, organization: String, programType : String, memberNumber : String) {
+    init(refId: String, environment: OfferEnvironment, merchantId: String, organization: String, programType : String, memberNumber : String, showTopHeader:Bool) {
         self.refId = refId
         self.environment = environment
         self.merchantId = merchantId
         self.organization = organization
         self.programType = programType
         self.memberNumber = memberNumber
+        self.showTopHeader = showTopHeader
     }
-    
-
-    
 }
 
 extension OfferConfig: Equatable, Hashable {
@@ -39,6 +38,7 @@ extension OfferConfig: Equatable, Hashable {
         hasher.combine(organization)
         hasher.combine(programType)
         hasher.combine(memberNumber)
+        hasher.combine(showTopHeader)
     }
     
     public static func == (lhs: OfferConfig, rhs: OfferConfig) -> Bool {
@@ -47,6 +47,7 @@ extension OfferConfig: Equatable, Hashable {
         lhs.merchantId == rhs.merchantId &&
         lhs.organization == rhs.organization &&
         lhs.programType == rhs.programType &&
-        lhs.memberNumber == rhs.memberNumber
+        lhs.memberNumber == rhs.memberNumber &&
+        lhs.showTopHeader == rhs.showTopHeader
     }
 }

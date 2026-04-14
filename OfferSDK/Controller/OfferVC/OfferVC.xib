@@ -24,6 +24,8 @@
                 <outlet property="vwClose" destination="ppO-EP-vUo" id="xM8-Qr-deC"/>
                 <outlet property="vwHeader" destination="cig-6W-H8a" id="hFv-Yz-6Yo"/>
                 <outlet property="vwHeaderBadge" destination="2NJ-G2-Riv" id="d0G-Ik-zlZ"/>
+                <outlet property="vwTopHeader" destination="2ua-e7-0rj" id="tDz-76-QtM"/>
+                <outlet property="vwTopHeaderHeight" destination="fQu-8f-1WF" id="u9Z-aR-Tbw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -106,8 +108,8 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="jSy-Kg-58d" secondAttribute="bottom" id="2ia-ky-GOG"/>
                                 <constraint firstItem="2OT-ES-AIS" firstAttribute="top" secondItem="ppO-EP-vUo" secondAttribute="top" constant="8" id="OqW-Ru-zQ7"/>
-                                <constraint firstAttribute="height" constant="36" id="PYZ-h7-m1z"/>
                                 <constraint firstAttribute="width" constant="36" id="RvJ-43-xgr"/>
+                                <constraint firstAttribute="height" constant="36" id="cyF-Qb-RWe"/>
                                 <constraint firstItem="jSy-Kg-58d" firstAttribute="top" secondItem="ppO-EP-vUo" secondAttribute="top" id="hTx-x9-llg"/>
                                 <constraint firstItem="2OT-ES-AIS" firstAttribute="leading" secondItem="ppO-EP-vUo" secondAttribute="leading" constant="8" id="iIn-d0-zUS"/>
                                 <constraint firstAttribute="bottom" secondItem="2OT-ES-AIS" secondAttribute="bottom" constant="8" id="ixA-CR-hzy"/>
@@ -120,12 +122,11 @@
                     <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="ppO-EP-vUo" firstAttribute="leading" secondItem="2ua-e7-0rj" secondAttribute="leading" constant="16" id="9oo-ej-eTA"/>
-                        <constraint firstAttribute="bottom" secondItem="ppO-EP-vUo" secondAttribute="bottom" constant="4" id="NcV-MO-bOH"/>
                         <constraint firstAttribute="trailing" secondItem="T9W-39-bdN" secondAttribute="trailing" constant="16" id="bhP-00-O9u"/>
                         <constraint firstItem="t2q-Q2-DXK" firstAttribute="centerY" secondItem="2ua-e7-0rj" secondAttribute="centerY" id="daI-cP-AXK"/>
                         <constraint firstAttribute="height" constant="44" id="fQu-8f-1WF"/>
                         <constraint firstItem="T9W-39-bdN" firstAttribute="centerY" secondItem="2ua-e7-0rj" secondAttribute="centerY" id="gcx-Ro-2wS"/>
-                        <constraint firstItem="ppO-EP-vUo" firstAttribute="top" secondItem="2ua-e7-0rj" secondAttribute="top" constant="4" id="i7l-4a-ZZL"/>
+                        <constraint firstItem="ppO-EP-vUo" firstAttribute="centerY" secondItem="2ua-e7-0rj" secondAttribute="centerY" id="jS7-Pl-yh4"/>
                         <constraint firstAttribute="trailing" secondItem="t2q-Q2-DXK" secondAttribute="trailing" constant="16" id="n6W-D2-di1"/>
                         <constraint firstItem="f9B-tM-uhQ" firstAttribute="centerY" secondItem="2ua-e7-0rj" secondAttribute="centerY" id="tlx-46-j1r"/>
                         <constraint firstItem="f9B-tM-uhQ" firstAttribute="centerX" secondItem="2ua-e7-0rj" secondAttribute="centerX" id="vnS-28-zIZ"/>
