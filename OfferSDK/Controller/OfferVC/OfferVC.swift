@@ -43,6 +43,13 @@ final public class OfferVC: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        if OfferThemeSettings.shared.themeOption == .dark {
+            self.view.backgroundColor = .black
+        }
+        else {
+            self.view.backgroundColor = .white
+        }
+        
         self.updateTopHeader()
         
 //        DispatchQueue.main.async(execute: {
@@ -65,7 +72,7 @@ final public class OfferVC: UIViewController {
         tblOffer.isHidden = true
         collectionOffer.isHidden = false
         
-        vwCategory.layer.borderColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.3).cgColor
+        vwCategory.layer.borderColor = OfferThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.3).cgColor
         vwCategory.layer.borderWidth = 1
         
         
@@ -121,7 +128,7 @@ final public class OfferVC: UIViewController {
         lblHeaderTitle.text = offerRespModel?.offerBannerDetails?.header?.title ?? ""
         lblHeaderBadge.text = offerRespModel?.offerBannerDetails?.header?.badge ?? ""
         lblBodyText.text = offerRespModel?.offerBannerDetails?.body?.text ?? ""
-        lblBodyText.textColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.8)
+        lblBodyText.textColor = OfferThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.8)
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
@@ -412,10 +419,11 @@ extension OfferVC {
 
         self.offerRespModel?.contentOffers = offers
         
-        self.getSetupData(isAddedNew: true)
-        UIView.performWithoutAnimation {
-            self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
-        }
+//        self.getSetupData(isAddedNew: true)
+        self.getSetupData()
+//        UIView.performWithoutAnimation {
+//            self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
+//        }
     }
 }
 

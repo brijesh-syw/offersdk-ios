@@ -23,7 +23,7 @@ extension String {
     
     func htmlToAttributedString(font:UIFont) -> NSMutableAttributedString? {
         
-//         let font = UIFont(name: ThemeSettings.shared.fontSetting.regularFont.familyName, size: 30)
+//         let font = UIFont(name: OfferThemeSettings.shared.fontSetting.regularFont.familyName, size: 30)
         
 //        let modifiedFont = String(format:"<span style=\"font-family: \(font2.familyName);\">%@</span>", self)
         
@@ -68,7 +68,7 @@ extension String {
 ////        }
 //        
 //        
-//         let font = UIFont(name: ThemeSettings.shared.fontSetting.regularFont.familyName, size: 30)
+//         let font = UIFont(name: OfferThemeSettings.shared.fontSetting.regularFont.familyName, size: 30)
 //        
 //        let modifiedFont = String(format:"<span style=\"font-family: \(font!.fontName);\">%@</span>", self)
 //        //let modifiedFont = String(format:"<span style=\"font-family: \(font!.fontName);font-size: \(font!.pointSize)\">%@</span>", self)

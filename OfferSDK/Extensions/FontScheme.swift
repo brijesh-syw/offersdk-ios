@@ -42,22 +42,22 @@ class FontScheme: NSObject {
     //Regular
     static func kRegularFont(size : CGFloat) -> UIFont  {
                 
-        return ThemeSettings.shared.fontSetting.regularFont.withSize(size)
+        return OfferThemeSettings.shared.fontSetting.regularFont.withSize(size)
     }
     
     //Medium
     static func kMediumFont(size : CGFloat) -> UIFont  {
 
-        return ThemeSettings.shared.fontSetting.mediumFont.withSize(size)
+        return OfferThemeSettings.shared.fontSetting.mediumFont.withSize(size)
     }
 
     //Bold
     static func kBoldFont(size : CGFloat) -> UIFont  {
         
-        return ThemeSettings.shared.fontSetting.boldFont.withSize(size)
+        return OfferThemeSettings.shared.fontSetting.boldFont.withSize(size)
         
 
-//        return UIFont(name: ThemeSettings.shared.fontSetting.boldFont.fontName, size: size)!
+//        return UIFont(name: OfferThemeSettings.shared.fontSetting.boldFont.fontName, size: size)!
     }
     
 }

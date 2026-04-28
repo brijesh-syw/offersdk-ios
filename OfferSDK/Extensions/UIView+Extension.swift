@@ -43,7 +43,7 @@ extension UIView {
 //        self.layer.addSublayer(shapeLayer)
 //    }
     
-    func addDashedBorder(cornerRadius: CGFloat, dashPattern: [NSNumber] = [4, 2], borderColor: UIColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.4), borderWidth: CGFloat = 1) {
+    func addDashedBorder(cornerRadius: CGFloat, dashPattern: [NSNumber] = [4, 2], borderColor: UIColor = OfferThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.4), borderWidth: CGFloat = 1) {
        
         removeDashBorder()
         let shapeLayer = CAShapeLayer()

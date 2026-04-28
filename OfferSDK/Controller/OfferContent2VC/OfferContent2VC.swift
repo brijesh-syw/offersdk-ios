@@ -125,7 +125,7 @@ class OfferContent2VC: UIViewController {
             imgView.sd_setImage(with: URL(string: model.getImageURL(env: config?.environment ?? OfferEnvironment.prod)), placeholderImage: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))
                         
             let attributes: [NSAttributedString.Key: Any] = [
-                .font: ThemeSettings.shared.fontSetting.mediumFont.withSize(16),
+                .font: OfferThemeSettings.shared.fontSetting.mediumFont.withSize(16),
                 .foregroundColor: UIColor.white
             ]
             
@@ -184,7 +184,7 @@ class OfferContent2VC: UIViewController {
                 
                 if model.isShowAddButton() {
                     let attributes: [NSAttributedString.Key: Any] = [
-                        .font: ThemeSettings.shared.fontSetting.mediumFont.withSize(16),
+                        .font: OfferThemeSettings.shared.fontSetting.mediumFont.withSize(16),
                         .foregroundColor: UIColor.white
                     ]
                     

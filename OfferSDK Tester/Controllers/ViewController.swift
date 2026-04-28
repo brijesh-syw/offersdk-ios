@@ -131,6 +131,8 @@ private extension ViewController {
 extension ViewController {
     @IBAction func btnOpenOffers_Click(_ sender: UIButton) {
         
+        OfferThemeSettings.shared.themeOption = .dark
+        
         loadCustomConfiguration()
         
 //        let bundle = Bundle(for: type(of: self))
@@ -140,15 +142,15 @@ extension ViewController {
         
 //        let colorsSetting = ColorSettings(primaryColor: UIColor.systemCyan, secondaryColor: UIColor.yellow, primaryTextColor: UIColor.black, secondaryTextColor: UIColor.white, primaryButtonBGColor: UIColor.blue, secondaryButtonBGColor: UIColor.red)
 //
-//        ThemeSettings.shared.colorSetting = colorsSetting
-//        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.systemFont(ofSize: 20))
+//        OfferThemeSettings.shared.colorSetting = colorsSetting
+//        OfferThemeSettings.shared.fontSetting = OfferFontSettings(font: UIFont.init(name: "Times New Roman", size: 20) ?? UIFont.systemFont(ofSize: 20))
         
         
-//        ThemeSettings.shared.fontSetting = FontSettings(regularFont: UIFont.init(name: "Times New Roman", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: UIFont.init(name: "Times New Roman", size: 18) ??  UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: UIFont.init(name: "Times New Roman Bold", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .bold))
+//        OfferThemeSettings.shared.fontSetting = OfferFontSettings(regularFont: UIFont.init(name: "Times New Roman", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: UIFont.init(name: "Times New Roman", size: 18) ??  UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: UIFont.init(name: "Times New Roman Bold", size: 18) ?? UIFont.systemFont(ofSize: 18, weight: .bold))
         
-//        ThemeSettings.shared.fontSetting = FontSettings(font: UIFont.init(name: "American Typewriter", size: 40) ?? UIFont.systemFont(ofSize: 20))
+//        OfferThemeSettings.shared.fontSetting = OfferFontSettings(font: UIFont.init(name: "American Typewriter", size: 40) ?? UIFont.systemFont(ofSize: 20))
         
-        ThemeSettings.shared.fontSetting = FontSettings.getDefaultFont()
+//        OfferThemeSettings.shared.fontSetting = OfferFontSettings.getDefaultFont()
         
 //        let vc = OfferVC(nibName: "OfferVC", bundle: bundle)
 //        let vc = OfferMainVC(nibName: "OfferMainVC", bundle: bundle)
@@ -165,8 +167,8 @@ extension ViewController {
         
 //        let colorsSetting = ColorSettings(primaryColor: UIColor.blue, secondaryColor: UIColor.yellow, primaryTextColor: UIColor.black, secondaryTextColor: UIColor.white, primaryButtonBGColor: UIColor.red, secondaryButtonBGColor: UIColor.black)
 
-//        ThemeSettings.shared.colorSetting = ColorSettings.getDefaultTheme()
-        ThemeSettings.shared.fontSetting = FontSettings.getDefaultFont()
+//        OfferThemeSettings.shared.colorSetting = ColorSettings.getDefaultTheme()
+//        OfferThemeSettings.shared.fontSetting = OfferFontSettings.getDefaultFont()
         
         loadCustomConfiguration()
         

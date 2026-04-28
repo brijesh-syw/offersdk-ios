@@ -1,5 +1,5 @@
 //
-//  ThemeSettings.swift
+//  OfferThemeSettings.swift
 //  OfferSDK
 //
 //  Created by Rashiya, Brijesh (Contractor) on 29/07/24.
@@ -40,7 +40,7 @@ public struct ColorSettings {
 }
 
 
-public struct FontSettings {
+public struct OfferFontSettings {
     
     var regularFont: UIFont
     var mediumFont: UIFont
@@ -53,7 +53,7 @@ public struct FontSettings {
         self.boldFont = boldFont
     }
     
-    static public func getDefaultFont() -> FontSettings {    
+    static public func getDefaultFont() -> OfferFontSettings {    
         
         SDKFontLoader.registerFonts()
         
@@ -61,22 +61,28 @@ public struct FontSettings {
         let medium = UIFont.init(name: "Poppins-Medium", size: 20)
         let bold = UIFont.init(name: "Poppins-Bold", size: 20)
         
-        return FontSettings(regularFont: regular ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: medium ?? UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: bold ?? UIFont.boldSystemFont(ofSize: 18))
+        return OfferFontSettings(regularFont: regular ?? UIFont.systemFont(ofSize: 18, weight: .regular), mediumFont: medium ?? UIFont.systemFont(ofSize: 18, weight: .medium), boldFont: bold ?? UIFont.boldSystemFont(ofSize: 18))
     }
     
     
     
 }
 
+public enum ThemeOption {
+    case light
+    case dark
+}
 
-public class ThemeSettings : NSObject {
+
+public class OfferThemeSettings : NSObject {
     
-    public static let shared = ThemeSettings(colorSetting: ColorSettings.getDefaultTheme(), fontSetting: FontSettings.getDefaultFont())
-    public var colorSetting: ColorSettings
-    public var fontSetting: FontSettings
+    public static let shared = OfferThemeSettings(colorSetting: ColorSettings.getDefaultTheme(), fontSetting: OfferFontSettings.getDefaultFont())
+    public let colorSetting: ColorSettings
+    public let fontSetting: OfferFontSettings
+    public var themeOption: ThemeOption = .light
     
     
-    private init (colorSetting: ColorSettings, fontSetting: FontSettings) {
+    private init (colorSetting: ColorSettings, fontSetting: OfferFontSettings) {
         self.colorSetting = colorSetting
         self.fontSetting = fontSetting
     }

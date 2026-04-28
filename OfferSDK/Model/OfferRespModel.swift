@@ -46,7 +46,40 @@ struct OfferRespModel : Codable {
 //
 //        }) ?? []
         
-        var arr = contentOffers ?? []
+        var arr : [OfferModel] = []
+                
+        if let arrContent = contentOffers {
+            let registered  = arrContent.filter { obj in
+                return obj.isRegisteredOffer == true
+            }.sorted(by: { obj1, obj2 in
+                let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+                let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+                
+                //            if(obj1EndDate == obj2EndDate){
+                //                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
+                //            }
+                return obj1EndDate < obj2EndDate
+            })
+            
+            let unRegistered  = arrContent.filter { obj in
+                return obj.isRegisteredOffer == false
+            }.sorted(by: { obj1, obj2 in
+                let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+                let obj2EndDate = Date().getDateFromString(dt: obj2.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
+                
+                //            if(obj1EndDate == obj2EndDate){
+                //                return (obj1.contentId ?? "").getInt < (obj2.contentId ?? "").getInt
+                //            }
+                return obj1EndDate < obj2EndDate
+            })
+            
+            
+            arr.append(contentsOf: registered)
+            arr.append(contentsOf: unRegistered)
+        }
+        
+        
+        
         
         let fidemOffer = staticContentOffers ?? []
         

@@ -46,26 +46,26 @@ class ColorScheme: NSObject {
     
     static func kPrimaryColor() -> UIColor{
         
-        return ThemeSettings.shared.colorSetting.primaryColor
+        return OfferThemeSettings.shared.colorSetting.primaryColor
     }
     static func kSecondaryColor() -> UIColor{
-        return ThemeSettings.shared.colorSetting.secondaryColor
+        return OfferThemeSettings.shared.colorSetting.secondaryColor
     }
     
     static func kPrimaryTextColor() -> UIColor{
-        return ThemeSettings.shared.colorSetting.primaryTextColor
+        return OfferThemeSettings.shared.colorSetting.primaryTextColor
     }
     
     static func kSecondaryTextColor() -> UIColor{
-        return ThemeSettings.shared.colorSetting.secondaryTextColor
+        return OfferThemeSettings.shared.colorSetting.secondaryTextColor
     }
     
     static func kPrimaryButtonBGColor() -> UIColor{
-        return ThemeSettings.shared.colorSetting.primaryButtonBGColor
+        return OfferThemeSettings.shared.colorSetting.primaryButtonBGColor
     }
     
     static func kSecondaryButtonBGColor() -> UIColor{
-        return ThemeSettings.shared.colorSetting.secondaryButtonBGColor
+        return OfferThemeSettings.shared.colorSetting.secondaryButtonBGColor
     }
     
     

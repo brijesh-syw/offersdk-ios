@@ -154,7 +154,7 @@ extension UILabel{
             value: titleParagraphStyle,
             range: range)
         
-//        if let font = UIFont(name: ThemeSettings.shared.fontSetting.font.familyName, size: self.font.pointSize) {
+//        if let font = UIFont(name: OfferThemeSettings.shared.fontSetting.font.familyName, size: self.font.pointSize) {
 //            attributedString.addAttribute(
 //                .font,
 //                value: font,

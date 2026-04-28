@@ -18,7 +18,7 @@ class OfferCategoryCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//         let font = ThemeSettings.shared.fontSetting.font
+//         let font = OfferThemeSettings.shared.fontSetting.font
 //        lblText.font = font
 //        lblText.font = UIFont(name: lblText.font.familyName, size: 30)
         
@@ -36,16 +36,16 @@ class OfferCategoryCell: UICollectionViewCell {
         lblText.text = model.text
         
         if(model.isSelected) {
-            vwIndicator.backgroundColor = ThemeSettings.shared.colorSetting.primaryColor
+            vwIndicator.backgroundColor = OfferThemeSettings.shared.colorSetting.primaryColor
             lblText.textColor = .white
-            vwBg.backgroundColor = ThemeSettings.shared.colorSetting.primaryColor
-            lblText.font = ThemeSettings.shared.fontSetting.mediumFont.withSize(14)
+            vwBg.backgroundColor = OfferThemeSettings.shared.colorSetting.primaryColor
+            lblText.font = OfferThemeSettings.shared.fontSetting.mediumFont.withSize(14)
         }
         else {
             vwIndicator.backgroundColor = UIColor.clear
-            lblText.textColor = ThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.7)
+            lblText.textColor = OfferThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.7)
             vwBg.backgroundColor = .clear
-            lblText.font = ThemeSettings.shared.fontSetting.regularFont.withSize(14)
+            lblText.font = OfferThemeSettings.shared.fontSetting.regularFont.withSize(14)
         }
         
     }
