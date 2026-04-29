@@ -6,7 +6,6 @@
 //
 
 import UIKit
-private import SDWebImage
 
 final public class OfferVC: UIViewController {
     
@@ -67,7 +66,7 @@ final public class OfferVC: UIViewController {
         self.collectionCategory.register(UINib(nibName: "OfferCategoryCell", bundle: bundle), forCellWithReuseIdentifier: "OfferCategoryCell")
         self.collectionOffer.register(UINib(nibName: "OfferGridCollectionCell", bundle: bundle), forCellWithReuseIdentifier: "OfferGridCollectionCell")
                 
-        configureSDWebImage()
+        configureOSImageLoader()
         
         tblOffer.isHidden = true
         collectionOffer.isHidden = false
@@ -77,6 +76,8 @@ final public class OfferVC: UIViewController {
         
         
     }
+    
+    
     
     func updateTopHeader() {        
         vwTopHeaderHeight.constant = config.showTopHeader ? 44 : 0
@@ -110,15 +111,15 @@ final public class OfferVC: UIViewController {
     }
     
     
-    func configureSDWebImage() {
-        
-        let imageDownloader = SDWebImageDownloader.shared
-        imageDownloader.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        imageDownloader.setValue("application/json", forHTTPHeaderField: "Accept")
-        imageDownloader.setValue(config.organization, forHTTPHeaderField: "organization")
-        imageDownloader.setValue(config.merchantId, forHTTPHeaderField: "client_id")
-        imageDownloader.setValue("telluride", forHTTPHeaderField: "platform")
-//        imageDownloader.setValue(config.refId, forHTTPHeaderField: "refId")
+    func configureOSImageLoader() {
+                
+        OSImageLoader.shared.configureHeaders([
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "organization": config.organization,
+            "client_id": config.merchantId,
+            "platform": "telluride"
+        ])
         
     }
     
@@ -419,11 +420,11 @@ extension OfferVC {
 
         self.offerRespModel?.contentOffers = offers
         
-//        self.getSetupData(isAddedNew: true)
-        self.getSetupData()
-//        UIView.performWithoutAnimation {
-//            self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
-//        }
+        self.getSetupData(isAddedNew: true)
+//        self.getSetupData()
+        UIView.performWithoutAnimation {
+            self.collectionOffer.reloadItems(at: [IndexPath(row: index, section: 0)])
+        }
     }
 }
 

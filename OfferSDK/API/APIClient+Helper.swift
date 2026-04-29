@@ -18,10 +18,7 @@ extension APIClient {
 //            completion(loadLocalData())
 //            return
 //        }
-        
-        
-        
-        
+                
         let url = URL(string: "\(config.environment.baseAPIUrl)/tell/sdk/v1/getmembercontentoffers")
         var request = URLRequest(url: url!)
 

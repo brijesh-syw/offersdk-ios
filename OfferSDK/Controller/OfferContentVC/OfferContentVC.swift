@@ -6,7 +6,6 @@
 //
 
 import UIKit
-private import SDWebImage
 
 class OfferContentVC: UIViewController {
     
@@ -44,8 +43,7 @@ class OfferContentVC: UIViewController {
             lblBodyLine.setHTMLStringToLabel(text: model.getWholeBodyline(), align: .center)
             
             lblDesclaimer.text = model.disclaimerLegalCopy ?? ""
-            imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            imgView.sd_setImage(with: URL(string: model.getImageURL(env: environment ?? OfferEnvironment.prod)), placeholderImage: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))
+            imgView.os_setImage(with: URL(string: model.getImageURL(env: environment ?? OfferEnvironment.prod)), placeholder: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))
             
             if (model.callToActionURL?.count ?? 0) > 0 {
                 btnGotoWebsite.isHidden = false

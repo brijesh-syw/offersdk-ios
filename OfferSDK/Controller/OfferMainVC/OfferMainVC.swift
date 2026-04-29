@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import SDWebImage
 
 final public class OfferMainVC: UIViewController {
     

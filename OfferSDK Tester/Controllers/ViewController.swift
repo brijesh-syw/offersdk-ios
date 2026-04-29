@@ -131,7 +131,7 @@ private extension ViewController {
 extension ViewController {
     @IBAction func btnOpenOffers_Click(_ sender: UIButton) {
         
-        OfferThemeSettings.shared.themeOption = .dark
+        OfferThemeSettings.shared.themeOption = .light
         
         loadCustomConfiguration()
         
@@ -170,6 +170,7 @@ extension ViewController {
 //        OfferThemeSettings.shared.colorSetting = ColorSettings.getDefaultTheme()
 //        OfferThemeSettings.shared.fontSetting = OfferFontSettings.getDefaultFont()
         
+        OfferThemeSettings.shared.themeOption = .dark
         loadCustomConfiguration()
         
 //        self.present(offerVC!, animated: true)

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-private import SDWebImage
 
 class OfferContent2VC: UIViewController {
     
@@ -81,8 +80,7 @@ class OfferContent2VC: UIViewController {
             if ((model.brandLogo?.count ?? 0) > 0 || (model.brandName?.count ?? 0) > 0) {
                 if let brandLogo = model.brandLogo, brandLogo.count > 0 {
                     imgBrandLogo.isHidden = false
-                    imgBrandLogo.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgBrandLogo.sd_setImage(with: URL(string: brandLogo))
+                    imgBrandLogo.os_setImage(with: URL(string: brandLogo))
                 }
                 else {
                     imgBrandLogo.isHidden = true
@@ -121,8 +119,7 @@ class OfferContent2VC: UIViewController {
             }
             
             
-            imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            imgView.sd_setImage(with: URL(string: model.getImageURL(env: config?.environment ?? OfferEnvironment.prod)), placeholderImage: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))
+            imgView.os_setImage(with: URL(string: model.getImageURL(env: config?.environment ?? OfferEnvironment.prod)), placeholder: UIImage(named: "placeholder.png", in: getCurrentBundle(self), with: .none))
                         
             let attributes: [NSAttributedString.Key: Any] = [
                 .font: OfferThemeSettings.shared.fontSetting.mediumFont.withSize(16),

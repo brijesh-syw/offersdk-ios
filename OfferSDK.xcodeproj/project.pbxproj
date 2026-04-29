@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1BE1222FA1E2E0009D5003 /* OSImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BE1212FA1E2DE009D5003 /* OSImageLoader.swift */; };
+		4C1BE1242FA1E319009D5003 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BE1232FA1E315009D5003 /* UIImageView+Extension.swift */; };
 		4C2EF6612C7CA8E600778CD6 /* OfferMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF65F2C7CA8E600778CD6 /* OfferMainVC.swift */; };
 		4C2EF6622C7CA8E600778CD6 /* OfferMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF6602C7CA8E600778CD6 /* OfferMainVC.xib */; };
 		4C2EF6662C7CAB8100778CD6 /* OfferMainTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF6642C7CAB8100778CD6 /* OfferMainTableCell.swift */; };
@@ -16,7 +18,6 @@
 		4C2EF66F2C7DEE6800778CD6 /* OfferContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF66D2C7DEE6800778CD6 /* OfferContentVC.swift */; };
 		4C2EF6702C7DEE6800778CD6 /* OfferContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C2EF66E2C7DEE6800778CD6 /* OfferContentVC.xib */; };
 		4C2EF6742C85BDAD00778CD6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2EF6732C85BDAD00778CD6 /* String+Extension.swift */; };
-		4C9352392CE75CB500359C7F /* SDWebImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9352382CE75CB500359C7F /* SDWebImage.xcframework */; };
 		4C9932742F4C4C1100C263C7 /* greenTick2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9932732F4C4C1100C263C7 /* greenTick2.png */; };
 		4CA832A02C47E2750035D55E /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8329F2C47E2750035D55E /* DateUtilities.swift */; };
 		4CA832A32C4E9A210035D55E /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CA832A12C4E9A210035D55E /* grid.png */; };
@@ -93,6 +94,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		4C1BE11F2FA1D771009D5003 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4CCDD8862C85E1D000434C4E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +118,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C1BE1212FA1E2DE009D5003 /* OSImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSImageLoader.swift; sourceTree = "<group>"; };
+		4C1BE1232FA1E315009D5003 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		4C2EF65F2C7CA8E600778CD6 /* OfferMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferMainVC.swift; sourceTree = "<group>"; };
 		4C2EF6602C7CA8E600778CD6 /* OfferMainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferMainVC.xib; sourceTree = "<group>"; };
 		4C2EF6642C7CAB8100778CD6 /* OfferMainTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferMainTableCell.swift; sourceTree = "<group>"; };
@@ -196,7 +209,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C9352392CE75CB500359C7F /* SDWebImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +287,7 @@
 		4CA8329E2C47E2640035D55E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4C1BE1212FA1E2DE009D5003 /* OSImageLoader.swift */,
 				4CA8329F2C47E2750035D55E /* DateUtilities.swift */,
 				4CA832AA2C57B2C30035D55E /* ThemeSettings.swift */,
 			);
@@ -430,6 +443,7 @@
 		4CD967702C2EB80200849416 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4C1BE1232FA1E315009D5003 /* UIImageView+Extension.swift */,
 				4CD967712C2EB81400849416 /* UIView+Extension.swift */,
 				4CA832AC2C57BD410035D55E /* ExtensionClass.swift */,
 				4CA832AE2C57C0AA0035D55E /* ColorScheme.swift */,
@@ -550,6 +564,7 @@
 				4CD9673C2C2EB1F500849416 /* Sources */,
 				4CD9673D2C2EB1F500849416 /* Frameworks */,
 				4CD9673E2C2EB1F500849416 /* Resources */,
+				4C1BE11F2FA1D771009D5003 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -678,6 +693,7 @@
 			files = (
 				4CCDD8A02C9848CE00434C4E /* OfferEnvironment.swift in Sources */,
 				4C2EF6612C7CA8E600778CD6 /* OfferMainVC.swift in Sources */,
+				4C1BE1222FA1E2E0009D5003 /* OSImageLoader.swift in Sources */,
 				4CD9678F2C3FDD7200849416 /* FilterVC.swift in Sources */,
 				4CD967742C32C61D00849416 /* OfferRespModel.swift in Sources */,
 				4CCDD8B02C9AD31300434C4E /* UIViewController+Extension.swift in Sources */,
@@ -697,6 +713,7 @@
 				4C2EF6742C85BDAD00778CD6 /* String+Extension.swift in Sources */,
 				4CD967792C32CF5800849416 /* APIClient+Helper.swift in Sources */,
 				4CD9676D2C2EB2EC00849416 /* OfferCollectionCell.swift in Sources */,
+				4C1BE1242FA1E319009D5003 /* UIImageView+Extension.swift in Sources */,
 				4CD967962C3FE08300849416 /* FilterCell.swift in Sources */,
 				4C2EF6662C7CAB8100778CD6 /* OfferMainTableCell.swift in Sources */,
 				4CA832A82C4E9E670035D55E /* OfferTableCell.swift in Sources */,
@@ -939,7 +956,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -973,7 +990,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 36A3RLFK7C;
 				GENERATE_INFOPLIST_FILE = YES;

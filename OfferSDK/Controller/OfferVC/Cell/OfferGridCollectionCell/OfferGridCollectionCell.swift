@@ -6,7 +6,6 @@
 //
 
 import UIKit
-private import SDWebImage
 
 class OfferGridCollectionCell: UICollectionViewCell {
     
@@ -54,6 +53,7 @@ class OfferGridCollectionCell: UICollectionViewCell {
         super.prepareForReuse()
         lblHeadline.attributedText = nil
         lblHeadline.text = nil
+        imgView.image = nil
     }
         
     func setData(model: OfferModel, config: OfferConfig) {
@@ -68,16 +68,14 @@ class OfferGridCollectionCell: UICollectionViewCell {
         
         if let brandLogo = model.brandLogo, brandLogo.count > 0 {
             imgBrand.isHidden = false
-            imgBrand.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            imgBrand.sd_setImage(with: URL(string: brandLogo))
+            imgBrand.os_setImage(with: URL(string: brandLogo))
         }
         else {
             imgBrand.isHidden = true
         }
         
         
-        imgView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        imgView.sd_setImage(with: URL(string: model.getImageURL(env: config.environment)), placeholderImage: UIImage(named: "placeholder.png", in: bundle, with: .none))
+        imgView.os_setImage(with: URL(string: model.getImageURL(env: config.environment)), placeholder: UIImage(named: "placeholder.png", in: bundle, with: .none))
         lblExpiry.text = model.getOfferEndCaption()
         
         if model.isShowAddButton() {
