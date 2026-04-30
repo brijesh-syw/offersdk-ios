@@ -97,6 +97,10 @@ class OfferGridCollectionCell: UICollectionViewCell {
             vwBg.layer.borderColor = UIColor(rgb: 0x4ADD80).cgColor
             vwBg.layer.borderWidth = 1
         }
+        else if model.isStaticOffer ?? false {
+            vwBg.layer.borderColor = UIColor(rgb: 0xBFC8D4).cgColor
+            vwBg.layer.borderWidth = 1
+        }
         else {
             vwBg.layer.borderColor = UIColor(rgb: 0xF3F4F6).cgColor
             vwBg.layer.borderWidth = 1
@@ -106,15 +110,18 @@ class OfferGridCollectionCell: UICollectionViewCell {
         
         
         if model.isStaticOffer ?? false {
-            imgView.alpha = 0.7
-            vwBg.addDashedBorder(cornerRadius: 8)
+//            imgView.alpha = 0.7
+//            vwBg.addDashedBorder(cornerRadius: 8)
             vwActivated.isHidden = false
-            vwBg.layer.borderWidth = 0
             stackExpiry.isHidden = true
+            
+            vwBg.backgroundColor = UIColor(rgb: 0xF7F7F7)
         }
         else {
-            imgView.alpha = 1
-            vwBg.removeDashBorder()
+//            imgView.alpha = 1
+//            vwBg.removeDashBorder()
+            
+            vwBg.backgroundColor = .white
             vwActivated.isHidden = true
             stackExpiry.isHidden = false
             

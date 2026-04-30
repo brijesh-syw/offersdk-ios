@@ -27,8 +27,10 @@ struct OfferRespModel : Codable {
     let responseTime : String
     let traceId : String
     var offerBannerDetails : OfferBannerDetailModel?
+    var DISABLE_STATIC_OFFER_DETAILS : String?
 
     var contentOffers : [OfferModel]?
+    
     var staticContentOffers : [OfferModel]?
     
     func getAvailableOffers() -> [OfferModel] {
@@ -47,9 +49,18 @@ struct OfferRespModel : Codable {
 //        }) ?? []
         
         var arr : [OfferModel] = []
+        
+       
                 
         if let arrContent = contentOffers {
-            let registered  = arrContent.filter { obj in
+            
+            let tempContentOffer = arrContent.filter { obj in
+                return (obj.contentId?.count ?? 0) > 0
+            }
+            
+            
+            
+            let registered  = tempContentOffer.filter { obj in
                 return obj.isRegisteredOffer == true
             }.sorted(by: { obj1, obj2 in
                 let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
@@ -61,7 +72,7 @@ struct OfferRespModel : Codable {
                 return obj1EndDate < obj2EndDate
             })
             
-            let unRegistered  = arrContent.filter { obj in
+            let unRegistered  = tempContentOffer.filter { obj in
                 return obj.isRegisteredOffer == false
             }.sorted(by: { obj1, obj2 in
                 let obj1EndDate = Date().getDateFromString(dt: obj1.offerEndDate ?? "", formate: "yyyy/MM/dd") ?? Date()
@@ -77,8 +88,6 @@ struct OfferRespModel : Codable {
             arr.append(contentsOf: registered)
             arr.append(contentsOf: unRegistered)
         }
-        
-        
         
         
         let fidemOffer = staticContentOffers ?? []
@@ -108,6 +117,16 @@ struct OfferRespModel : Codable {
         return contentOffers?.filter({ model in
             return model.isExpireSoon == true
         }) ?? []
+    }
+    
+    
+    func getAllowStatidOfferDetails() -> Bool{
+        if(DISABLE_STATIC_OFFER_DETAILS == "Y" || DISABLE_STATIC_OFFER_DETAILS == "y") {
+            return false
+        }
+        else {
+            return true
+        }
     }
     
 }

@@ -21,16 +21,21 @@ extension UIView {
     }
     
     func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+        
+        // Remove existing gradient if any
+        layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
+        
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor ]
-//        gradientLayer.colors = [UIColor.red.cgColor, UIColor.green.cgColor]
+        //        gradientLayer.colors = [UIColor.red.cgColor, UIColor.green.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.2, y: 1.0)
         gradientLayer.endPoint = CGPoint(x: 0.8, y: 1.0)
         gradientLayer.locations = [0, 1]
         gradientLayer.frame = bounds
         gradientLayer.cornerRadius = self.layer.cornerRadius
-
-       layer.insertSublayer(gradientLayer, at: 0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
     }
     
 //    func addDashedBorder(radius: CGFloat, color: UIColor, dashPattern: [NSNumber] = [4, 4]) {

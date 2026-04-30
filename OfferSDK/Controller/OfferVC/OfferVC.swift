@@ -123,6 +123,18 @@ final public class OfferVC: UIViewController {
         
     }
     
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if let badgeTxt = offerRespModel?.offerBannerDetails?.header?.badge, badgeTxt.count > 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.vwHeaderBadge.setGradientBackground(colorTop: UIColor(rgb: 0xfbbf24), colorBottom: UIColor(rgb: 0xf59e0b))
+                self.vwHeaderBadge.dropShadow()
+            })
+        }
+        
+    }
+    
     func setupData() {
         //
         
@@ -130,13 +142,6 @@ final public class OfferVC: UIViewController {
         lblHeaderBadge.text = offerRespModel?.offerBannerDetails?.header?.badge ?? ""
         lblBodyText.text = offerRespModel?.offerBannerDetails?.body?.text ?? ""
         lblBodyText.textColor = OfferThemeSettings.shared.colorSetting.primaryColor.withAlphaComponent(0.8)
-        
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-            self.vwHeaderBadge.setGradientBackground(colorTop: UIColor(rgb: 0xfbbf24), colorBottom: UIColor(rgb: 0xf59e0b))
-            self.vwHeaderBadge.dropShadow()
-        })
-        
         
         
         getSetupData()
@@ -344,6 +349,13 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
 //        }
         
         if(collectionView == collectionOffer) {
+            let model = arrOffer[indexPath.row]
+            // is static offer, then detail page will not visible
+            if (model.isStaticOffer ?? false) &&  self.offerRespModel?.getAllowStatidOfferDetails() == false {
+                return
+            }
+            
+            
             let vc = OfferContent2VC(nibName: "OfferContent2VC", bundle: getCurrentBundle(self))
             vc.offerModel = arrOffer[indexPath.row]
             vc.config = config
@@ -356,6 +368,7 @@ extension OfferVC : UICollectionViewDataSource, UICollectionViewDelegate, UIColl
             vc.modalPresentationStyle = .custom
             
             self.present(vc, animated: false)
+            
         }
         else if(collectionView == collectionCategory) {
             
